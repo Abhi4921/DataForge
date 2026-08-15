@@ -1,0 +1,5798 @@
+{
+  "metadata": {
+    "version": "0.2.0",
+    "description": "DataPilot project-to-dataset knowledge base",
+    "total_concepts": 147,
+    "last_updated": "2026-08-12"
+  },
+  "domains": {
+    "artificial_intelligence": {
+      "label": "Artificial Intelligence",
+      "subdomains": {
+        "machine_learning": {
+          "label": "Machine Learning",
+          "concepts": [
+            {
+              "id": "ai.ml.classification",
+              "canonical_term": "classification",
+              "synonyms": [
+                "class prediction",
+                "category assignment",
+                "labeling data points"
+              ],
+              "aliases": [
+                "supervised classification"
+              ],
+              "abbreviations": [
+                "clf"
+              ],
+              "related_concepts": [
+                "supervised learning",
+                "binary classification",
+                "multi class classification"
+              ],
+              "potential_ml_tasks": [
+                "classification",
+                "binary_classification",
+                "multi_label_classification"
+              ],
+              "dataset_requirements": [
+                "labeled examples",
+                "features",
+                "target labels"
+              ],
+              "feature_requirements": [
+                "numerical features",
+                "categorical features"
+              ],
+              "target_requirements": [
+                "discrete labels"
+              ],
+              "importance": 0.95
+            },
+            {
+              "id": "ai.ml.regression",
+              "canonical_term": "regression",
+              "synonyms": [
+                "continuous prediction",
+                "value prediction",
+                "numerical forecasting"
+              ],
+              "aliases": [
+                "supervised regression"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "supervised learning",
+                "linear regression",
+                "time series forecasting"
+              ],
+              "potential_ml_tasks": [
+                "regression",
+                "time_series_forecasting"
+              ],
+              "dataset_requirements": [
+                "labeled examples",
+                "features",
+                "continuous target"
+              ],
+              "feature_requirements": [
+                "numerical features",
+                "temporal features"
+              ],
+              "target_requirements": [
+                "continuous values"
+              ],
+              "importance": 0.95
+            },
+            {
+              "id": "ai.ml.clustering",
+              "canonical_term": "clustering",
+              "synonyms": [
+                "grouping",
+                "cluster analysis",
+                "data grouping",
+                "segmentation"
+              ],
+              "aliases": [
+                "unsupervised clustering"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "unsupervised learning",
+                "segmentation",
+                "kmeans"
+              ],
+              "potential_ml_tasks": [
+                "clustering",
+                "segmentation"
+              ],
+              "dataset_requirements": [
+                "unlabeled features",
+                "numerical data"
+              ],
+              "feature_requirements": [
+                "numerical features"
+              ],
+              "target_requirements": [],
+              "importance": 0.9
+            },
+            {
+              "id": "ai.ml.anomaly_detection",
+              "canonical_term": "anomaly detection",
+              "synonyms": [
+                "outlier detection",
+                "abnormality detection",
+                "novelty detection",
+                "fraud detection",
+                "intrusion detection"
+              ],
+              "aliases": [
+                "outlier detection",
+                "novelty detection"
+              ],
+              "abbreviations": [
+                "AD"
+              ],
+              "related_concepts": [
+                "unsupervised learning",
+                "classification",
+                "fraud detection"
+              ],
+              "potential_ml_tasks": [
+                "anomaly_detection",
+                "classification",
+                "one_class_classification"
+              ],
+              "dataset_requirements": [
+                "labeled or unlabeled data",
+                "normal and anomalous examples"
+              ],
+              "feature_requirements": [
+                "numerical features",
+                "behavioral features"
+              ],
+              "target_requirements": [
+                "binary labels normal anomaly"
+              ],
+              "importance": 0.92
+            },
+            {
+              "id": "ai.ml.dimensionality_reduction",
+              "canonical_term": "dimensionality reduction",
+              "synonyms": [
+                "feature reduction",
+                "feature selection",
+                "feature extraction",
+                "manifold learning"
+              ],
+              "aliases": [
+                "feature reduction"
+              ],
+              "abbreviations": [
+                "DR"
+              ],
+              "related_concepts": [
+                "unsupervised learning",
+                "pca",
+                "autoencoders"
+              ],
+              "potential_ml_tasks": [
+                "dimensionality_reduction",
+                "feature_engineering"
+              ],
+              "dataset_requirements": [
+                "high dimensional data"
+              ],
+              "feature_requirements": [
+                "numerical features"
+              ],
+              "target_requirements": [],
+              "importance": 0.8
+            },
+            {
+              "id": "ai.ml.reinforcement_learning",
+              "canonical_term": "reinforcement learning",
+              "synonyms": [
+                "reward-based learning",
+                "RL",
+                "policy learning",
+                "agent training"
+              ],
+              "aliases": [
+                "RL"
+              ],
+              "abbreviations": [
+                "RL"
+              ],
+              "related_concepts": [
+                "deep reinforcement learning",
+                "q learning",
+                "policy gradient"
+              ],
+              "potential_ml_tasks": [
+                "reinforcement_learning",
+                "policy_optimization",
+                "game_playing"
+              ],
+              "dataset_requirements": [
+                "environment interactions",
+                "state action reward tuples"
+              ],
+              "feature_requirements": [
+                "state features",
+                "action features"
+              ],
+              "target_requirements": [
+                "rewards"
+              ],
+              "importance": 0.85
+            },
+            {
+              "id": "ai.ml.ensemble_methods",
+              "canonical_term": "ensemble methods",
+              "synonyms": [
+                "ensemble learning",
+                "model ensembles",
+                "combining models"
+              ],
+              "aliases": [
+                "ensemble"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "random forest",
+                "gradient boosting",
+                "xgboost"
+              ],
+              "potential_ml_tasks": [
+                "classification",
+                "regression"
+              ],
+              "dataset_requirements": [
+                "labeled examples",
+                "tabular data"
+              ],
+              "feature_requirements": [
+                "mixed features"
+              ],
+              "target_requirements": [
+                "discrete or continuous labels"
+              ],
+              "importance": 0.85
+            }
+          ]
+        },
+        "deep_learning": {
+          "label": "Deep Learning",
+          "concepts": [
+            {
+              "id": "ai.dl.neural_networks",
+              "canonical_term": "neural networks",
+              "synonyms": [
+                "deep neural networks",
+                "DNN",
+                "artificial neural networks",
+                "ANN"
+              ],
+              "aliases": [
+                "deep learning models"
+              ],
+              "abbreviations": [
+                "DNN",
+                "ANN"
+              ],
+              "related_concepts": [
+                "deep learning",
+                "backpropagation",
+                "gradient descent"
+              ],
+              "potential_ml_tasks": [
+                "classification",
+                "regression",
+                "generation"
+              ],
+              "dataset_requirements": [
+                "large labeled datasets",
+                "numerical or image or text data"
+              ],
+              "feature_requirements": [
+                "raw or engineered features"
+              ],
+              "target_requirements": [
+                "labels or continuous values"
+              ],
+              "importance": 0.9
+            },
+            {
+              "id": "ai.dl.cnn",
+              "canonical_term": "convolutional neural network",
+              "synonyms": [
+                "CNN",
+                "conv net",
+                "convolutional net"
+              ],
+              "aliases": [
+                "convolutional network"
+              ],
+              "abbreviations": [
+                "CNN"
+              ],
+              "related_concepts": [
+                "image classification",
+                "object detection",
+                "computer vision"
+              ],
+              "potential_ml_tasks": [
+                "image_classification",
+                "object_detection",
+                "semantic_segmentation",
+                "image_segmentation"
+              ],
+              "dataset_requirements": [
+                "labeled images",
+                "image datasets"
+              ],
+              "feature_requirements": [
+                "pixel data",
+                "image channels"
+              ],
+              "target_requirements": [
+                "image labels",
+                "bounding boxes",
+                "segmentation masks"
+              ],
+              "importance": 0.92
+            },
+            {
+              "id": "ai.dl.rnn",
+              "canonical_term": "recurrent neural network",
+              "synonyms": [
+                "RNN",
+                "recurrent net",
+                "sequence model"
+              ],
+              "aliases": [
+                "recurrent network"
+              ],
+              "abbreviations": [
+                "RNN"
+              ],
+              "related_concepts": [
+                "lstm",
+                "gru",
+                "sequence modeling"
+              ],
+              "potential_ml_tasks": [
+                "sequence_classification",
+                "time_series_forecasting",
+                "text_generation"
+              ],
+              "dataset_requirements": [
+                "sequential data",
+                "time series data",
+                "text data"
+              ],
+              "feature_requirements": [
+                "sequential features",
+                "temporal features"
+              ],
+              "target_requirements": [
+                "sequence labels",
+                "next step values"
+              ],
+              "importance": 0.85
+            },
+            {
+              "id": "ai.dl.transformer",
+              "canonical_term": "transformer",
+              "synonyms": [
+                "transformer model",
+                "attention model",
+                "self-attention network"
+              ],
+              "aliases": [
+                "transformer architecture"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "attention mechanism",
+                "bert",
+                "gpt",
+                "llm"
+              ],
+              "potential_ml_tasks": [
+                "text_classification",
+                "ner",
+                "sentiment_analysis",
+                "text_generation",
+                "machine_translation"
+              ],
+              "dataset_requirements": [
+                "text data",
+                "labeled text data"
+              ],
+              "feature_requirements": [
+                "tokenized text",
+                "embeddings"
+              ],
+              "target_requirements": [
+                "text labels",
+                "generated text"
+              ],
+              "importance": 0.95
+            },
+            {
+              "id": "ai.dl.autoencoder",
+              "canonical_term": "autoencoder",
+              "synonyms": [
+                "AE",
+                "auto-encoder",
+                "encoder-decoder"
+              ],
+              "aliases": [
+                "autoencoder network"
+              ],
+              "abbreviations": [
+                "AE"
+              ],
+              "related_concepts": [
+                "vae",
+                "dimensionality reduction",
+                "anomaly detection",
+                "feature learning"
+              ],
+              "potential_ml_tasks": [
+                "dimensionality_reduction",
+                "anomaly_detection",
+                "generation",
+                "denoising"
+              ],
+              "dataset_requirements": [
+                "unlabeled or labeled data"
+              ],
+              "feature_requirements": [
+                "numerical features",
+                "image data"
+              ],
+              "target_requirements": [
+                "reconstruction target"
+              ],
+              "importance": 0.82
+            },
+            {
+              "id": "ai.dl.gan",
+              "canonical_term": "generative adversarial network",
+              "synonyms": [
+                "GAN",
+                "adversarial network",
+                "generative model"
+              ],
+              "aliases": [
+                "adversarial generative network"
+              ],
+              "abbreviations": [
+                "GAN"
+              ],
+              "related_concepts": [
+                "generative models",
+                "image generation",
+                "data augmentation"
+              ],
+              "potential_ml_tasks": [
+                "image_generation",
+                "data_augmentation",
+                "style_transfer"
+              ],
+              "dataset_requirements": [
+                "large image datasets",
+                "unlabeled images"
+              ],
+              "feature_requirements": [
+                "image data",
+                "latent vectors"
+              ],
+              "target_requirements": [
+                "generated images"
+              ],
+              "importance": 0.85
+            }
+          ]
+        },
+        "nlp": {
+          "label": "Natural Language Processing",
+          "concepts": [
+            {
+              "id": "ai.nlp.text_classification",
+              "canonical_term": "text classification",
+              "synonyms": [
+                "document classification",
+                "text categorization",
+                "topic classification"
+              ],
+              "aliases": [
+                "doc classification"
+              ],
+              "abbreviations": [
+                "TC"
+              ],
+              "related_concepts": [
+                "sentiment analysis",
+                "spam detection",
+                "topic modeling"
+              ],
+              "potential_ml_tasks": [
+                "classification",
+                "multi_class_classification",
+                "multi_label_classification"
+              ],
+              "dataset_requirements": [
+                "labeled text documents",
+                "text with categories"
+              ],
+              "feature_requirements": [
+                "text content",
+                "metadata"
+              ],
+              "target_requirements": [
+                "category labels"
+              ],
+              "importance": 0.92
+            },
+            {
+              "id": "ai.nlp.sentiment_analysis",
+              "canonical_term": "sentiment analysis",
+              "synonyms": [
+                "opinion mining",
+                "sentiment classification",
+                "emotion detection",
+                "aspect sentiment"
+              ],
+              "aliases": [
+                "opinion mining",
+                "emotion analysis"
+              ],
+              "abbreviations": [
+                "SA"
+              ],
+              "related_concepts": [
+                "text classification",
+                "emotion detection",
+                "opinion mining"
+              ],
+              "potential_ml_tasks": [
+                "classification",
+                "regression",
+                "aspect_extraction"
+              ],
+              "dataset_requirements": [
+                "labeled reviews",
+                "text with sentiment labels"
+              ],
+              "feature_requirements": [
+                "text content",
+                "review ratings"
+              ],
+              "target_requirements": [
+                "sentiment labels",
+                "sentiment scores"
+              ],
+              "importance": 0.9
+            },
+            {
+              "id": "ai.nlp.ner",
+              "canonical_term": "named entity recognition",
+              "synonyms": [
+                "NER",
+                "entity extraction",
+                "named entity extraction",
+                "entity recognition"
+              ],
+              "aliases": [
+                "entity extraction",
+                "name recognition"
+              ],
+              "abbreviations": [
+                "NER"
+              ],
+              "related_concepts": [
+                "information extraction",
+                "relation extraction",
+                "entity linking"
+              ],
+              "potential_ml_tasks": [
+                "sequence_labeling",
+                "token_classification",
+                "entity_extraction"
+              ],
+              "dataset_requirements": [
+                "annotated text",
+                "text with entity labels"
+              ],
+              "feature_requirements": [
+                "tokenized text",
+                "contextual features"
+              ],
+              "target_requirements": [
+                "entity tags",
+                "bio labels"
+              ],
+              "importance": 0.88
+            },
+            {
+              "id": "ai.nlp.machine_translation",
+              "canonical_term": "machine translation",
+              "synonyms": [
+                "MT",
+                "automatic translation",
+                "language translation",
+                "text translation"
+              ],
+              "aliases": [
+                "automatic translation"
+              ],
+              "abbreviations": [
+                "MT"
+              ],
+              "related_concepts": [
+                "sequence to sequence",
+                "transformer",
+                "bilingual text"
+              ],
+              "potential_ml_tasks": [
+                "sequence_to_sequence",
+                "text_generation"
+              ],
+              "dataset_requirements": [
+                "parallel corpora",
+                "bilingual text pairs"
+              ],
+              "feature_requirements": [
+                "source text",
+                "tokenized text"
+              ],
+              "target_requirements": [
+                "translated text"
+              ],
+              "importance": 0.85
+            },
+            {
+              "id": "ai.nlp.question_answering",
+              "canonical_term": "question answering",
+              "synonyms": [
+                "QA",
+                "answer extraction",
+                "reading comprehension",
+                "extractive QA"
+              ],
+              "aliases": [
+                "QA system"
+              ],
+              "abbreviations": [
+                "QA"
+              ],
+              "related_concepts": [
+                "information retrieval",
+                "reading comprehension",
+                "chatbot"
+              ],
+              "potential_ml_tasks": [
+                "text_classification",
+                "span_extraction",
+                "generation"
+              ],
+              "dataset_requirements": [
+                "question context answer triples",
+                "qa datasets"
+              ],
+              "feature_requirements": [
+                "question text",
+                "context text"
+              ],
+              "target_requirements": [
+                "answer text",
+                "answer spans"
+              ],
+              "importance": 0.88
+            },
+            {
+              "id": "ai.nlp.text_summarization",
+              "canonical_term": "text summarization",
+              "synonyms": [
+                "summarization",
+                "document summarization",
+                "abstractive summarization",
+                "extractive summarization"
+              ],
+              "aliases": [
+                "auto summarization"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "information extraction",
+                "text generation"
+              ],
+              "potential_ml_tasks": [
+                "sequence_to_sequence",
+                "text_generation"
+              ],
+              "dataset_requirements": [
+                "document summary pairs",
+                "long documents with summaries"
+              ],
+              "feature_requirements": [
+                "document text"
+              ],
+              "target_requirements": [
+                "summary text"
+              ],
+              "importance": 0.85
+            },
+            {
+              "id": "ai.nlp.chatbot",
+              "canonical_term": "chatbot",
+              "synonyms": [
+                "conversational AI",
+                "dialogue system",
+                "virtual assistant",
+                "conversational agent"
+              ],
+              "aliases": [
+                "dialogue agent",
+                "conversational bot"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "dialogue system",
+                "question answering",
+                "text generation",
+                "llm"
+              ],
+              "potential_ml_tasks": [
+                "sequence_to_sequence",
+                "text_generation",
+                "dialogue_management"
+              ],
+              "dataset_requirements": [
+                "conversation logs",
+                "dialogue data",
+                "instruction response pairs"
+              ],
+              "feature_requirements": [
+                "conversation history",
+                "context"
+              ],
+              "target_requirements": [
+                "response text"
+              ],
+              "importance": 0.9
+            },
+            {
+              "id": "ai.nlp.topic_modeling",
+              "canonical_term": "topic modeling",
+              "synonyms": [
+                "topic discovery",
+                "latent topic analysis",
+                "document clustering"
+              ],
+              "aliases": [
+                "topic discovery"
+              ],
+              "abbreviations": [
+                "TM"
+              ],
+              "related_concepts": [
+                "clustering",
+                "lda",
+                "bertopic"
+              ],
+              "potential_ml_tasks": [
+                "clustering",
+                "dimensionality_reduction"
+              ],
+              "dataset_requirements": [
+                "unlabeled document corpora"
+              ],
+              "feature_requirements": [
+                "document text",
+                "term frequencies"
+              ],
+              "target_requirements": [],
+              "importance": 0.82
+            },
+            {
+              "id": "ai.nlp.spam_detection",
+              "canonical_term": "spam detection",
+              "synonyms": [
+                "spam filtering",
+                "junk detection",
+                "unwanted content detection"
+              ],
+              "aliases": [
+                "spam filtering"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "text classification",
+                "email classification",
+                "anomaly detection"
+              ],
+              "potential_ml_tasks": [
+                "binary_classification",
+                "text_classification"
+              ],
+              "dataset_requirements": [
+                "labeled emails",
+                "spam ham datasets"
+              ],
+              "feature_requirements": [
+                "email text",
+                "sender info",
+                "email metadata"
+              ],
+              "target_requirements": [
+                "spam ham labels"
+              ],
+              "importance": 0.85
+            }
+          ]
+        },
+        "computer_vision": {
+          "label": "Computer Vision",
+          "concepts": [
+            {
+              "id": "ai.cv.image_classification",
+              "canonical_term": "image classification",
+              "synonyms": [
+                "image recognition",
+                "picture classification",
+                "visual classification"
+              ],
+              "aliases": [
+                "image recognition"
+              ],
+              "abbreviations": [
+                "IC"
+              ],
+              "related_concepts": [
+                "cnn",
+                "deep learning",
+                "transfer learning"
+              ],
+              "potential_ml_tasks": [
+                "classification",
+                "multi_class_classification"
+              ],
+              "dataset_requirements": [
+                "labeled images",
+                "image datasets"
+              ],
+              "feature_requirements": [
+                "pixel data",
+                "image channels"
+              ],
+              "target_requirements": [
+                "class labels"
+              ],
+              "importance": 0.92
+            },
+            {
+              "id": "ai.cv.object_detection",
+              "canonical_term": "object detection",
+              "synonyms": [
+                "object recognition",
+                "bounding box detection",
+                "entity detection in images"
+              ],
+              "aliases": [
+                "visual object detection"
+              ],
+              "abbreviations": [
+                "OD"
+              ],
+              "related_concepts": [
+                "yolo",
+                "rcnn",
+                "image classification",
+                "instance segmentation"
+              ],
+              "potential_ml_tasks": [
+                "object_detection",
+                "bounding_box_prediction"
+              ],
+              "dataset_requirements": [
+                "images with bounding boxes",
+                "annotated images"
+              ],
+              "feature_requirements": [
+                "image data",
+                "annotations"
+              ],
+              "target_requirements": [
+                "bounding boxes",
+                "class labels per box"
+              ],
+              "importance": 0.92
+            },
+            {
+              "id": "ai.cv.semantic_segmentation",
+              "canonical_term": "semantic segmentation",
+              "synonyms": [
+                "pixel classification",
+                "image segmentation",
+                "scene parsing"
+              ],
+              "aliases": [
+                "pixel-wise classification"
+              ],
+              "abbreviations": [
+                "SS"
+              ],
+              "related_concepts": [
+                "instance segmentation",
+                "panoptic segmentation",
+                "medical image segmentation"
+              ],
+              "potential_ml_tasks": [
+                "semantic_segmentation",
+                "pixel_classification"
+              ],
+              "dataset_requirements": [
+                "images with segmentation masks",
+                "annotated images"
+              ],
+              "feature_requirements": [
+                "image data",
+                "pixel annotations"
+              ],
+              "target_requirements": [
+                "segmentation masks"
+              ],
+              "importance": 0.88
+            },
+            {
+              "id": "ai.cv.face_detection",
+              "canonical_term": "face detection",
+              "synonyms": [
+                "facial detection",
+                "face recognition",
+                "facial recognition",
+                "face identification"
+              ],
+              "aliases": [
+                "facial detection"
+              ],
+              "abbreviations": [
+                "FD"
+              ],
+              "related_concepts": [
+                "face recognition",
+                "emotion detection",
+                "landmark detection"
+              ],
+              "potential_ml_tasks": [
+                "object_detection",
+                "classification",
+                "face_verification"
+              ],
+              "dataset_requirements": [
+                "face images",
+                "annotated face images"
+              ],
+              "feature_requirements": [
+                "face images",
+                "facial landmarks"
+              ],
+              "target_requirements": [
+                "face bbox",
+                "identity labels"
+              ],
+              "importance": 0.85
+            },
+            {
+              "id": "ai.cv.ocr",
+              "canonical_term": "optical character recognition",
+              "synonyms": [
+                "OCR",
+                "text recognition",
+                "document text extraction",
+                "scene text recognition"
+              ],
+              "aliases": [
+                "text recognition"
+              ],
+              "abbreviations": [
+                "OCR"
+              ],
+              "related_concepts": [
+                "text detection",
+                "document analysis",
+                "handwriting recognition"
+              ],
+              "potential_ml_tasks": [
+                "sequence_recognition",
+                "text_detection",
+                "character_classification"
+              ],
+              "dataset_requirements": [
+                "images with text",
+                "annotated text images"
+              ],
+              "feature_requirements": [
+                "image data",
+                "text regions"
+              ],
+              "target_requirements": [
+                "transcribed text"
+              ],
+              "importance": 0.85
+            },
+            {
+              "id": "ai.cv.image_generation",
+              "canonical_term": "image generation",
+              "synonyms": [
+                "image synthesis",
+                "visual generation",
+                "picture creation",
+                "synthetic image creation"
+              ],
+              "aliases": [
+                "visual generation"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "gan",
+                "diffusion models",
+                "stable diffusion",
+                "dalle"
+              ],
+              "potential_ml_tasks": [
+                "generation",
+                "image_synthesis",
+                "style_transfer"
+              ],
+              "dataset_requirements": [
+                "large image datasets",
+                "text image pairs"
+              ],
+              "feature_requirements": [
+                "text prompts",
+                "latent vectors"
+              ],
+              "target_requirements": [
+                "generated images"
+              ],
+              "importance": 0.88
+            },
+            {
+              "id": "ai.cv.pose_estimation",
+              "canonical_term": "pose estimation",
+              "synonyms": [
+                "human pose estimation",
+                "body pose detection",
+                "skeletal tracking",
+                "keypoint detection"
+              ],
+              "aliases": [
+                "body pose detection"
+              ],
+              "abbreviations": [
+                "HPE"
+              ],
+              "related_concepts": [
+                "action recognition",
+                "gesture recognition",
+                "motion analysis"
+              ],
+              "potential_ml_tasks": [
+                "keypoint_detection",
+                "regression",
+                "sequence_classification"
+              ],
+              "dataset_requirements": [
+                "images with keypoints",
+                "pose annotated images"
+              ],
+              "feature_requirements": [
+                "image data",
+                "keypoint annotations"
+              ],
+              "target_requirements": [
+                "keypoint coordinates"
+              ],
+              "importance": 0.82
+            },
+            {
+              "id": "ai.cv.action_recognition",
+              "canonical_term": "action recognition",
+              "synonyms": [
+                "activity recognition",
+                "video classification",
+                "temporal action detection"
+              ],
+              "aliases": [
+                "activity recognition"
+              ],
+              "abbreviations": [
+                "AR"
+              ],
+              "related_concepts": [
+                "video classification",
+                "gesture recognition",
+                "pose estimation"
+              ],
+              "potential_ml_tasks": [
+                "classification",
+                "temporal_localization"
+              ],
+              "dataset_requirements": [
+                "video datasets",
+                "annotated videos"
+              ],
+              "feature_requirements": [
+                "video frames",
+                "optical flow"
+              ],
+              "target_requirements": [
+                "action labels"
+              ],
+              "importance": 0.85
+            }
+          ]
+        },
+        "foundational_ml": {
+          "label": "Foundational ML/AI",
+          "concepts": [
+            {
+              "id": "ai.foundational.machine_learning",
+              "canonical_term": "machine learning",
+              "synonyms": [
+                "ML",
+                "statistical learning",
+                "learned models",
+                "pattern recognition"
+              ],
+              "aliases": [
+                "machine-learning"
+              ],
+              "abbreviations": [
+                "ML"
+              ],
+              "related_concepts": [
+                "deep learning",
+                "supervised learning",
+                "data science",
+                "artificial intelligence"
+              ],
+              "potential_ml_tasks": [
+                "classification",
+                "regression",
+                "clustering",
+                "anomaly detection"
+              ],
+              "dataset_requirements": [
+                "labeled data",
+                "training data",
+                "feature data"
+              ],
+              "feature_requirements": [
+                "numerical features",
+                "categorical features"
+              ],
+              "target_requirements": [
+                "target variable",
+                "label column"
+              ],
+              "importance": 0.98
+            },
+            {
+              "id": "ai.foundational.deep_learning",
+              "canonical_term": "deep learning",
+              "synonyms": [
+                "DL",
+                "neural network learning",
+                "deep neural networks"
+              ],
+              "aliases": [
+                "deep-learning"
+              ],
+              "abbreviations": [
+                "DL"
+              ],
+              "related_concepts": [
+                "neural networks",
+                "convolutional neural network",
+                "recurrent neural network",
+                "transformer",
+                "machine learning"
+              ],
+              "potential_ml_tasks": [
+                "classification",
+                "regression",
+                "generation",
+                "detection"
+              ],
+              "dataset_requirements": [
+                "large datasets",
+                "labeled data"
+              ],
+              "feature_requirements": [
+                "raw data",
+                "image data",
+                "text data"
+              ],
+              "target_requirements": [
+                "labels",
+                "annotations"
+              ],
+              "importance": 0.95
+            },
+            {
+              "id": "ai.foundational.artificial_intelligence",
+              "canonical_term": "artificial intelligence",
+              "synonyms": [
+                "AI",
+                "intelligent systems",
+                "smart systems"
+              ],
+              "aliases": [
+                "machine intelligence"
+              ],
+              "abbreviations": [
+                "AI"
+              ],
+              "related_concepts": [
+                "machine learning",
+                "deep learning",
+                "natural language processing",
+                "computer vision"
+              ],
+              "potential_ml_tasks": [
+                "classification",
+                "regression",
+                "prediction",
+                "generation"
+              ],
+              "dataset_requirements": [
+                "domain data",
+                "labeled data"
+              ],
+              "feature_requirements": [
+                "relevant features"
+              ],
+              "target_requirements": [
+                "target variable"
+              ],
+              "importance": 0.97
+            },
+            {
+              "id": "ai.foundational.data_science",
+              "canonical_term": "data science",
+              "synonyms": [
+                "data analytics",
+                "predictive analytics",
+                "business analytics"
+              ],
+              "aliases": [],
+              "abbreviations": [
+                "DS"
+              ],
+              "related_concepts": [
+                "machine learning",
+                "statistics",
+                "data analysis",
+                "data mining"
+              ],
+              "potential_ml_tasks": [
+                "classification",
+                "regression",
+                "clustering",
+                "analysis"
+              ],
+              "dataset_requirements": [
+                "structured data",
+                "historical data"
+              ],
+              "feature_requirements": [
+                "relevant features"
+              ],
+              "target_requirements": [
+                "target variable"
+              ],
+              "importance": 0.93
+            },
+            {
+              "id": "ai.foundational.supervised_learning",
+              "canonical_term": "supervised learning",
+              "synonyms": [
+                "labeled learning",
+                "guided learning"
+              ],
+              "aliases": [],
+              "abbreviations": [],
+              "related_concepts": [
+                "classification",
+                "regression",
+                "machine learning"
+              ],
+              "potential_ml_tasks": [
+                "classification",
+                "regression"
+              ],
+              "dataset_requirements": [
+                "labeled examples",
+                "training data with labels"
+              ],
+              "feature_requirements": [
+                "input features"
+              ],
+              "target_requirements": [
+                "target labels",
+                "output variable"
+              ],
+              "importance": 0.9
+            },
+            {
+              "id": "ai.foundational.unsupervised_learning",
+              "canonical_term": "unsupervised learning",
+              "synonyms": [
+                "self-organized learning",
+                "unlabeled learning"
+              ],
+              "aliases": [],
+              "abbreviations": [],
+              "related_concepts": [
+                "clustering",
+                "anomaly detection",
+                "dimensionality reduction"
+              ],
+              "potential_ml_tasks": [
+                "clustering",
+                "anomaly detection",
+                "dimensionality reduction"
+              ],
+              "dataset_requirements": [
+                "unlabeled data",
+                "feature data"
+              ],
+              "feature_requirements": [
+                "input features"
+              ],
+              "target_requirements": [],
+              "importance": 0.88
+            },
+            {
+              "id": "ai.foundational.transfer_learning",
+              "canonical_term": "transfer learning",
+              "synonyms": [
+                "domain adaptation",
+                "fine-tuning",
+                "pre-trained models"
+              ],
+              "aliases": [],
+              "abbreviations": [],
+              "related_concepts": [
+                "deep learning",
+                "neural networks",
+                "fine tuning"
+              ],
+              "potential_ml_tasks": [
+                "classification",
+                "detection",
+                "generation"
+              ],
+              "dataset_requirements": [
+                "pre-trained model",
+                "target domain data"
+              ],
+              "feature_requirements": [
+                "domain-specific features"
+              ],
+              "target_requirements": [
+                "target labels"
+              ],
+              "importance": 0.85
+            },
+            {
+              "id": "ai.foundational.feature_engineering",
+              "canonical_term": "feature engineering",
+              "synonyms": [
+                "feature extraction",
+                "feature creation",
+                "feature selection"
+              ],
+              "aliases": [],
+              "abbreviations": [],
+              "related_concepts": [
+                "data preprocessing",
+                "dimensionality reduction",
+                "feature selection"
+              ],
+              "potential_ml_tasks": [
+                "feature engineering",
+                "feature selection"
+              ],
+              "dataset_requirements": [
+                "raw data",
+                "domain knowledge"
+              ],
+              "feature_requirements": [
+                "raw features"
+              ],
+              "target_requirements": [
+                "engineered features"
+              ],
+              "importance": 0.85
+            },
+            {
+              "id": "ai.foundational.data_preprocessing",
+              "canonical_term": "data preprocessing",
+              "synonyms": [
+                "data cleaning",
+                "data preparation",
+                "data transformation"
+              ],
+              "aliases": [],
+              "abbreviations": [],
+              "related_concepts": [
+                "feature engineering",
+                "data augmentation",
+                "missing value imputation"
+              ],
+              "potential_ml_tasks": [
+                "data cleaning",
+                "data transformation"
+              ],
+              "dataset_requirements": [
+                "raw data",
+                "messy data"
+              ],
+              "feature_requirements": [
+                "raw features"
+              ],
+              "target_requirements": [],
+              "importance": 0.82
+            },
+            {
+              "id": "ai.foundational.model_evaluation",
+              "canonical_term": "model evaluation",
+              "synonyms": [
+                "model testing",
+                "performance evaluation",
+                "model assessment"
+              ],
+              "aliases": [],
+              "abbreviations": [],
+              "related_concepts": [
+                "cross-validation",
+                "accuracy",
+                "precision",
+                "recall"
+              ],
+              "potential_ml_tasks": [
+                "evaluation",
+                "benchmarking"
+              ],
+              "dataset_requirements": [
+                "test data",
+                "validation data"
+              ],
+              "feature_requirements": [
+                "test features"
+              ],
+              "target_requirements": [
+                "test labels"
+              ],
+              "importance": 0.8
+            },
+            {
+              "id": "ai.foundational.prediction",
+              "canonical_term": "prediction",
+              "synonyms": [
+                "forecasting",
+                "projecting",
+                "estimation"
+              ],
+              "aliases": [],
+              "abbreviations": [],
+              "related_concepts": [
+                "regression",
+                "time series forecasting",
+                "classification"
+              ],
+              "potential_ml_tasks": [
+                "regression",
+                "classification",
+                "forecasting"
+              ],
+              "dataset_requirements": [
+                "historical data",
+                "labeled data"
+              ],
+              "feature_requirements": [
+                "input features"
+              ],
+              "target_requirements": [
+                "target values"
+              ],
+              "importance": 0.9
+            },
+            {
+              "id": "ai.foundational.detection",
+              "canonical_term": "detection",
+              "synonyms": [
+                "identification",
+                "recognition",
+                "discovery"
+              ],
+              "aliases": [],
+              "abbreviations": [],
+              "related_concepts": [
+                "anomaly detection",
+                "object detection",
+                "classification"
+              ],
+              "potential_ml_tasks": [
+                "binary classification",
+                "detection",
+                "recognition"
+              ],
+              "dataset_requirements": [
+                "labeled data",
+                "positive and negative examples"
+              ],
+              "feature_requirements": [
+                "discriminative features"
+              ],
+              "target_requirements": [
+                "presence absence labels"
+              ],
+              "importance": 0.88
+            },
+            {
+              "id": "ai.foundational.recognition",
+              "canonical_term": "recognition",
+              "synonyms": [
+                "identification",
+                "detection",
+                "classification"
+              ],
+              "aliases": [],
+              "abbreviations": [],
+              "related_concepts": [
+                "image classification",
+                "object detection",
+                "speech recognition"
+              ],
+              "potential_ml_tasks": [
+                "classification",
+                "detection"
+              ],
+              "dataset_requirements": [
+                "labeled data",
+                "categorized examples"
+              ],
+              "feature_requirements": [
+                "discriminative features"
+              ],
+              "target_requirements": [
+                "category labels"
+              ],
+              "importance": 0.85
+            },
+            {
+              "id": "ai.foundational.optimization",
+              "canonical_term": "optimization",
+              "synonyms": [
+                "improvement",
+                "efficiency",
+                "minimization",
+                "maximization"
+              ],
+              "aliases": [],
+              "abbreviations": [],
+              "related_concepts": [
+                "resource allocation",
+                "scheduling optimization",
+                "operations research"
+              ],
+              "potential_ml_tasks": [
+                "optimization",
+                "regression"
+              ],
+              "dataset_requirements": [
+                "constraint data",
+                "objective function data"
+              ],
+              "feature_requirements": [
+                "decision variables"
+              ],
+              "target_requirements": [
+                "optimal values"
+              ],
+              "importance": 0.82
+            },
+            {
+              "id": "ai.foundational.forecasting",
+              "canonical_term": "forecasting",
+              "synonyms": [
+                "prediction",
+                "projection",
+                "future estimation",
+                "forecast"
+              ],
+              "aliases": [],
+              "abbreviations": [],
+              "related_concepts": [
+                "time series forecasting",
+                "regression",
+                "demand forecasting"
+              ],
+              "potential_ml_tasks": [
+                "regression",
+                "time series forecasting"
+              ],
+              "dataset_requirements": [
+                "historical time series",
+                "temporal data"
+              ],
+              "feature_requirements": [
+                "time features",
+                "lag features"
+              ],
+              "target_requirements": [
+                "future values"
+              ],
+              "importance": 0.88
+            },
+            {
+              "id": "ai.foundational.recommendation",
+              "canonical_term": "recommendation",
+              "synonyms": [
+                "suggestion",
+                "personalization",
+                "ranking"
+              ],
+              "aliases": [],
+              "abbreviations": [],
+              "related_concepts": [
+                "collaborative filtering",
+                "content based filtering",
+                "product recommendation"
+              ],
+              "potential_ml_tasks": [
+                "recommendation",
+                "ranking",
+                "collaborative filtering"
+              ],
+              "dataset_requirements": [
+                "user item interactions",
+                "user preferences"
+              ],
+              "feature_requirements": [
+                "user features",
+                "item features"
+              ],
+              "target_requirements": [
+                "ratings",
+                "engagement"
+              ],
+              "importance": 0.85
+            }
+          ]
+        }
+      }
+    },
+    "cybersecurity": {
+      "label": "Cybersecurity",
+      "subdomains": {
+        "network_security": {
+          "label": "Network Security",
+          "concepts": [
+            {
+              "id": "cyber.network.intrusion_detection",
+              "canonical_term": "intrusion detection",
+              "synonyms": [
+                "network intrusion detection",
+                "IDS",
+                "intrusion detection system",
+                "network attack detection"
+              ],
+              "aliases": [
+                "IDS"
+              ],
+              "abbreviations": [
+                "IDS",
+                "NIDS"
+              ],
+              "related_concepts": [
+                "anomaly detection",
+                "network traffic analysis",
+                "firewall"
+              ],
+              "potential_ml_tasks": [
+                "binary_classification",
+                "multi_class_classification",
+                "anomaly_detection"
+              ],
+              "dataset_requirements": [
+                "network traffic logs",
+                "labeled network data"
+              ],
+              "feature_requirements": [
+                "packet features",
+                "flow features",
+                "protocol info"
+              ],
+              "target_requirements": [
+                "attack benign labels",
+                "attack type labels"
+              ],
+              "importance": 0.92
+            },
+            {
+              "id": "cyber.network.traffic_analysis",
+              "canonical_term": "network traffic analysis",
+              "synonyms": [
+                "traffic analysis",
+                "packet analysis",
+                "network monitoring",
+                "flow analysis"
+              ],
+              "aliases": [
+                "packet analysis"
+              ],
+              "abbreviations": [
+                "NTA"
+              ],
+              "related_concepts": [
+                "intrusion detection",
+                "bandwidth monitoring",
+                "protocol analysis"
+              ],
+              "potential_ml_tasks": [
+                "classification",
+                "clustering",
+                "anomaly_detection"
+              ],
+              "dataset_requirements": [
+                "network flow data",
+                "packet captures"
+              ],
+              "feature_requirements": [
+                "packet sizes",
+                "flow durations",
+                "protocol features"
+              ],
+              "target_requirements": [
+                "traffic labels"
+              ],
+              "importance": 0.88
+            },
+            {
+              "id": "cyber.network.malware_detection",
+              "canonical_term": "malware detection",
+              "synonyms": [
+                "malicious software detection",
+                "virus detection",
+                "malware classification",
+                "malware analysis"
+              ],
+              "aliases": [
+                "malware classification"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "binary analysis",
+                "signature detection",
+                "behavioral analysis"
+              ],
+              "potential_ml_tasks": [
+                "binary_classification",
+                "multi_class_classification"
+              ],
+              "dataset_requirements": [
+                "malware samples",
+                "binary executables",
+                "labeled malware"
+              ],
+              "feature_requirements": [
+                "api calls",
+                "system calls",
+                "byte sequences",
+                "pe headers"
+              ],
+              "target_requirements": [
+                "malware family labels"
+              ],
+              "importance": 0.9
+            },
+            {
+              "id": "cyber.network.ddos_detection",
+              "canonical_term": "DDoS detection",
+              "synonyms": [
+                "distributed denial of service detection",
+                "DDoS attack detection",
+                "volumetric attack detection"
+              ],
+              "aliases": [
+                "DDoS attack detection"
+              ],
+              "abbreviations": [
+                "DDoS"
+              ],
+              "related_concepts": [
+                "anomaly detection",
+                "network traffic analysis",
+                "flooding detection"
+              ],
+              "potential_ml_tasks": [
+                "binary_classification",
+                "anomaly_detection"
+              ],
+              "dataset_requirements": [
+                "network flow data",
+                "ddos attack logs"
+              ],
+              "feature_requirements": [
+                "packet rates",
+                "flow volumes",
+                "protocol distribution"
+              ],
+              "target_requirements": [
+                "attack benign labels"
+              ],
+              "importance": 0.88
+            }
+          ]
+        },
+        "web_security": {
+          "label": "Web Security",
+          "concepts": [
+            {
+              "id": "cyber.web.phishing",
+              "canonical_term": "phishing",
+              "synonyms": [
+                "phishing website",
+                "malicious URL",
+                "fake website",
+                "fraudulent website",
+                "phishing email",
+                "phishing attack"
+              ],
+              "aliases": [
+                "phishing detection"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "url classification",
+                "email security",
+                "social engineering"
+              ],
+              "potential_ml_tasks": [
+                "binary_classification",
+                "url_classification"
+              ],
+              "dataset_requirements": [
+                "labeled urls",
+                "phishing legitimate url pairs"
+              ],
+              "feature_requirements": [
+                "url features",
+                "domain features",
+                "page content",
+                "ssl features"
+              ],
+              "target_requirements": [
+                "phishing legitimate labels"
+              ],
+              "importance": 0.92
+            },
+            {
+              "id": "cyber.web.xss_detection",
+              "canonical_term": "XSS detection",
+              "synonyms": [
+                "cross-site scripting detection",
+                "XSS attack detection",
+                "script injection detection"
+              ],
+              "aliases": [
+                "cross-site scripting detection"
+              ],
+              "abbreviations": [
+                "XSS"
+              ],
+              "related_concepts": [
+                "web application security",
+                "input validation",
+                "injection attacks"
+              ],
+              "potential_ml_tasks": [
+                "binary_classification",
+                "text_classification"
+              ],
+              "dataset_requirements": [
+                "labeled http requests",
+                "xss payload datasets"
+              ],
+              "feature_requirements": [
+                "request parameters",
+                "html content",
+                "script tags"
+              ],
+              "target_requirements": [
+                "xss benign labels"
+              ],
+              "importance": 0.85
+            },
+            {
+              "id": "cyber.web.sql_injection",
+              "canonical_term": "SQL injection detection",
+              "synonyms": [
+                "SQLi detection",
+                "SQL injection attack detection",
+                "database injection detection"
+              ],
+              "aliases": [
+                "SQLi detection"
+              ],
+              "abbreviations": [
+                "SQLi"
+              ],
+              "related_concepts": [
+                "web application security",
+                "input validation",
+                "injection attacks"
+              ],
+              "potential_ml_tasks": [
+                "binary_classification",
+                "text_classification"
+              ],
+              "dataset_requirements": [
+                "labeled http requests",
+                "sqli payload datasets"
+              ],
+              "feature_requirements": [
+                "request parameters",
+                "query strings",
+                "sql keywords"
+              ],
+              "target_requirements": [
+                "sqli benign labels"
+              ],
+              "importance": 0.85
+            }
+          ]
+        },
+        "fraud_detection": {
+          "label": "Fraud Detection",
+          "concepts": [
+            {
+              "id": "cyber.fraud.financial_fraud",
+              "canonical_term": "financial fraud detection",
+              "synonyms": [
+                "fraud detection",
+                "transaction fraud",
+                "payment fraud",
+                "credit card fraud",
+                "bank fraud"
+              ],
+              "aliases": [
+                "fraud detection"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "anomaly detection",
+                "classification",
+                "credit card fraud"
+              ],
+              "potential_ml_tasks": [
+                "binary_classification",
+                "anomaly_detection",
+                "imbalanced_classification"
+              ],
+              "dataset_requirements": [
+                "transaction data",
+                "labeled fraud transactions"
+              ],
+              "feature_requirements": [
+                "transaction amount",
+                "transaction time",
+                "merchant info",
+                "user behavior"
+              ],
+              "target_requirements": [
+                "fraud legitimate labels"
+              ],
+              "importance": 0.92
+            },
+            {
+              "id": "cyber.fraud.insurance_fraud",
+              "canonical_term": "insurance fraud detection",
+              "synonyms": [
+                "claim fraud detection",
+                "insurance claim fraud",
+                "fraudulent claims"
+              ],
+              "aliases": [
+                "claim fraud detection"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "anomaly detection",
+                "classification",
+                "claims analysis"
+              ],
+              "potential_ml_tasks": [
+                "binary_classification",
+                "anomaly_detection"
+              ],
+              "dataset_requirements": [
+                "insurance claims",
+                "labeled fraud claims"
+              ],
+              "feature_requirements": [
+                "claim amount",
+                "claim history",
+                "policy info",
+                "claim description"
+              ],
+              "target_requirements": [
+                "fraud legitimate labels"
+              ],
+              "importance": 0.85
+            },
+            {
+              "id": "cyber.fraud.identity_fraud",
+              "canonical_term": "identity fraud detection",
+              "synonyms": [
+                "identity theft detection",
+                "account takeover detection",
+                "impersonation detection"
+              ],
+              "aliases": [
+                "identity theft detection"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "anomaly detection",
+                "user behavior analysis",
+                "authentication"
+              ],
+              "potential_ml_tasks": [
+                "binary_classification",
+                "anomaly_detection"
+              ],
+              "dataset_requirements": [
+                "user behavior data",
+                "authentication logs"
+              ],
+              "feature_requirements": [
+                "login patterns",
+                "device fingerprints",
+                "location data"
+              ],
+              "target_requirements": [
+                "fraud legitimate labels"
+              ],
+              "importance": 0.85
+            }
+          ]
+        },
+        "network_security_foundational": {
+          "label": "Network Security Foundational",
+          "concepts": [
+            {
+              "id": "cyber.net_foundational.network_security",
+              "canonical_term": "network security",
+              "synonyms": [
+                "cyber defense",
+                "network defense",
+                "information security",
+                "cybersecurity"
+              ],
+              "aliases": [
+                "network defense"
+              ],
+              "abbreviations": [
+                "NETSEC"
+              ],
+              "related_concepts": [
+                "intrusion detection",
+                "firewall",
+                "network traffic analysis"
+              ],
+              "potential_ml_tasks": [
+                "binary classification",
+                "multi class classification",
+                "anomaly detection"
+              ],
+              "dataset_requirements": [
+                "network logs",
+                "security events"
+              ],
+              "feature_requirements": [
+                "packet features",
+                "flow features"
+              ],
+              "target_requirements": [
+                "threat labels",
+                "benign malicious labels"
+              ],
+              "importance": 0.92
+            },
+            {
+              "id": "cyber.net_foundational.network_traffic",
+              "canonical_term": "network traffic",
+              "synonyms": [
+                "packet data",
+                "network flow",
+                "traffic data",
+                "network packets"
+              ],
+              "aliases": [
+                "traffic flow"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "network traffic analysis",
+                "intrusion detection",
+                "network security"
+              ],
+              "potential_ml_tasks": [
+                "classification",
+                "clustering",
+                "anomaly detection"
+              ],
+              "dataset_requirements": [
+                "packet captures",
+                "flow records",
+                "netflow data"
+              ],
+              "feature_requirements": [
+                "packet sizes",
+                "flow durations",
+                "protocol types"
+              ],
+              "target_requirements": [
+                "traffic labels",
+                "attack types"
+              ],
+              "importance": 0.9
+            },
+            {
+              "id": "cyber.net_foundational.abnormal_behavior",
+              "canonical_term": "abnormal behavior",
+              "synonyms": [
+                "anomalous behavior",
+                "malicious behavior",
+                "suspicious activity",
+                "threat behavior",
+                "abnormal behaviour",
+                "malicious behaviour"
+              ],
+              "aliases": [
+                "suspicious behavior"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "anomaly detection",
+                "intrusion detection",
+                "malware detection"
+              ],
+              "potential_ml_tasks": [
+                "anomaly detection",
+                "binary classification"
+              ],
+              "dataset_requirements": [
+                "behavior logs",
+                "activity data"
+              ],
+              "feature_requirements": [
+                "behavioral features",
+                "activity patterns"
+              ],
+              "target_requirements": [
+                "normal abnormal labels"
+              ],
+              "importance": 0.88
+            },
+            {
+              "id": "cyber.net_foundational.malicious_activity",
+              "canonical_term": "malicious activity",
+              "synonyms": [
+                "threat detection",
+                "attack detection",
+                "hostile activity",
+                "adversarial activity"
+              ],
+              "aliases": [
+                "attack activity"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "intrusion detection",
+                "anomaly detection",
+                "malware detection"
+              ],
+              "potential_ml_tasks": [
+                "binary classification",
+                "multi class classification"
+              ],
+              "dataset_requirements": [
+                "security logs",
+                "attack data"
+              ],
+              "feature_requirements": [
+                "activity features",
+                "context features"
+              ],
+              "target_requirements": [
+                "attack labels",
+                "threat levels"
+              ],
+              "importance": 0.88
+            },
+            {
+              "id": "cyber.net_foundational.intrusion_detection_system",
+              "canonical_term": "intrusion detection system",
+              "synonyms": [
+                "IDS",
+                "network intrusion detection system",
+                "security monitoring system"
+              ],
+              "aliases": [
+                "intrusion detector"
+              ],
+              "abbreviations": [
+                "IDS",
+                "NIDS"
+              ],
+              "related_concepts": [
+                "intrusion detection",
+                "network security",
+                "anomaly detection"
+              ],
+              "potential_ml_tasks": [
+                "binary classification",
+                "multi class classification"
+              ],
+              "dataset_requirements": [
+                "network traffic data",
+                "attack signatures"
+              ],
+              "feature_requirements": [
+                "flow features",
+                "packet features"
+              ],
+              "target_requirements": [
+                "attack benign labels"
+              ],
+              "importance": 0.88
+            },
+            {
+              "id": "cyber.net_foundational.abnormal_behaviour",
+              "canonical_term": "abnormal behaviour",
+              "synonyms": [
+                "abnormal behavior",
+                "anomalous behavior",
+                "suspicious behavior"
+              ],
+              "aliases": [],
+              "abbreviations": [],
+              "related_concepts": [
+                "anomaly detection",
+                "intrusion detection"
+              ],
+              "potential_ml_tasks": [
+                "anomaly detection",
+                "binary classification"
+              ],
+              "dataset_requirements": [
+                "behavior logs"
+              ],
+              "feature_requirements": [
+                "behavioral features"
+              ],
+              "target_requirements": [
+                "normal abnormal labels"
+              ],
+              "importance": 0.85
+            }
+          ]
+        },
+        "fraud_foundational": {
+          "label": "Fraud Foundational",
+          "concepts": [
+            {
+              "id": "cyber.fraud_foundational.financial_fraud",
+              "canonical_term": "financial fraud",
+              "synonyms": [
+                "fraud",
+                "payment fraud",
+                "monetary fraud",
+                "financial crime",
+                "fraudulent",
+                "fraudulent transactions"
+              ],
+              "aliases": [
+                "money fraud"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "fraud detection",
+                "anomaly detection",
+                "credit card fraud"
+              ],
+              "potential_ml_tasks": [
+                "binary classification",
+                "anomaly detection"
+              ],
+              "dataset_requirements": [
+                "transaction records",
+                "fraud labels"
+              ],
+              "feature_requirements": [
+                "transaction amount",
+                "transaction time",
+                "merchant info"
+              ],
+              "target_requirements": [
+                "fraud legitimate labels"
+              ],
+              "importance": 0.9
+            },
+            {
+              "id": "cyber.fraud_foundational.credit_card",
+              "canonical_term": "credit card",
+              "synonyms": [
+                "payment card",
+                "card transaction",
+                "credit card transaction"
+              ],
+              "aliases": [
+                "debit card"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "financial fraud",
+                "transaction fraud",
+                "payment processing"
+              ],
+              "potential_ml_tasks": [
+                "binary classification",
+                "fraud detection"
+              ],
+              "dataset_requirements": [
+                "transaction data",
+                "card transaction history"
+              ],
+              "feature_requirements": [
+                "amount",
+                "merchant",
+                "location",
+                "time"
+              ],
+              "target_requirements": [
+                "fraud labels"
+              ],
+              "importance": 0.85
+            },
+            {
+              "id": "cyber.fraud_foundational.credit_card_fraud",
+              "canonical_term": "credit card fraud",
+              "synonyms": [
+                "card fraud",
+                "payment card fraud",
+                "credit card transaction fraud"
+              ],
+              "aliases": [
+                "credit card fraud detection"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "financial fraud",
+                "fraud detection",
+                "anomaly detection"
+              ],
+              "potential_ml_tasks": [
+                "binary classification",
+                "anomaly detection",
+                "imbalanced classification"
+              ],
+              "dataset_requirements": [
+                "credit card transactions",
+                "fraud labels"
+              ],
+              "feature_requirements": [
+                "transaction amount",
+                "merchant",
+                "location",
+                "time",
+                "card features"
+              ],
+              "target_requirements": [
+                "fraud legitimate labels"
+              ],
+              "importance": 0.9
+            }
+          ]
+        }
+      }
+    },
+    "healthcare": {
+      "label": "Healthcare",
+      "subdomains": {
+        "medical_imaging": {
+          "label": "Medical Imaging",
+          "concepts": [
+            {
+              "id": "health.imaging.diagnosis",
+              "canonical_term": "medical image diagnosis",
+              "synonyms": [
+                "radiology AI",
+                "medical image analysis",
+                "diagnostic imaging",
+                "clinical image analysis"
+              ],
+              "aliases": [
+                "radiology AI"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "ct scan analysis",
+                "mri analysis",
+                "xray analysis",
+                "pathology imaging"
+              ],
+              "potential_ml_tasks": [
+                "classification",
+                "detection",
+                "segmentation"
+              ],
+              "dataset_requirements": [
+                "medical images",
+                "annotated medical images"
+              ],
+              "feature_requirements": [
+                "image data",
+                "patient metadata"
+              ],
+              "target_requirements": [
+                "diagnosis labels",
+                "pathology labels"
+              ],
+              "importance": 0.92
+            },
+            {
+              "id": "health.imaging.tumor_detection",
+              "canonical_term": "tumor detection",
+              "synonyms": [
+                "tumor identification",
+                "lesion detection",
+                "cancer detection",
+                "tumor segmentation"
+              ],
+              "aliases": [
+                "lesion detection"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "medical imaging",
+                "object detection",
+                "cancer screening"
+              ],
+              "potential_ml_tasks": [
+                "object_detection",
+                "segmentation",
+                "classification"
+              ],
+              "dataset_requirements": [
+                "annotated medical images",
+                "tumor annotated scans"
+              ],
+              "feature_requirements": [
+                "image data",
+                "scan parameters"
+              ],
+              "target_requirements": [
+                "tumor location",
+                "tumor type"
+              ],
+              "importance": 0.9
+            },
+            {
+              "id": "health.imaging.retinal_analysis",
+              "canonical_term": "retinal image analysis",
+              "synonyms": [
+                "fundus analysis",
+                "retinal screening",
+                "eye disease detection",
+                "diabetic retinopathy detection"
+              ],
+              "aliases": [
+                "fundus analysis"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "diabetic retinopathy",
+                "glaucoma detection",
+                "macular degeneration"
+              ],
+              "potential_ml_tasks": [
+                "classification",
+                "segmentation",
+                "detection"
+              ],
+              "dataset_requirements": [
+                "retinal images",
+                "fundus photographs"
+              ],
+              "feature_requirements": [
+                "retinal image data"
+              ],
+              "target_requirements": [
+                "disease stage labels"
+              ],
+              "importance": 0.82
+            }
+          ]
+        },
+        "clinical_analysis": {
+          "label": "Clinical Analysis",
+          "concepts": [
+            {
+              "id": "health.clinical.disease_prediction",
+              "canonical_term": "disease prediction",
+              "synonyms": [
+                "disease risk prediction",
+                "illness forecasting",
+                "health risk assessment",
+                "diagnostic prediction"
+              ],
+              "aliases": [
+                "health risk prediction"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "risk scoring",
+                "early detection",
+                "preventive medicine"
+              ],
+              "potential_ml_tasks": [
+                "classification",
+                "regression",
+                "risk_scoring"
+              ],
+              "dataset_requirements": [
+                "patient records",
+                "clinical data",
+                "electronic health records"
+              ],
+              "feature_requirements": [
+                "demographics",
+                "lab results",
+                "symptoms",
+                "medical history"
+              ],
+              "target_requirements": [
+                "diagnosis labels",
+                "risk scores"
+              ],
+              "importance": 0.92
+            },
+            {
+              "id": "health.clinical.readmission",
+              "canonical_term": "hospital readmission prediction",
+              "synonyms": [
+                "readmission risk",
+                "rehospitalization prediction",
+                "patient readmission"
+              ],
+              "aliases": [
+                "readmission risk prediction"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "risk scoring",
+                "patient outcomes",
+                "hospital management"
+              ],
+              "potential_ml_tasks": [
+                "binary_classification",
+                "regression"
+              ],
+              "dataset_requirements": [
+                "hospital admission records",
+                "patient outcomes"
+              ],
+              "feature_requirements": [
+                "patient history",
+                "discharge info",
+                "demographics",
+                "comorbidities"
+              ],
+              "target_requirements": [
+                "readmission labels"
+              ],
+              "importance": 0.82
+            },
+            {
+              "id": "health.clinical.drug_discovery",
+              "canonical_term": "drug discovery",
+              "synonyms": [
+                "pharmaceutical discovery",
+                "drug development",
+                "molecular screening",
+                "drug repurposing"
+              ],
+              "aliases": [
+                "molecular screening"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "molecular classification",
+                "protein structure",
+                "pharmacology"
+              ],
+              "potential_ml_tasks": [
+                "classification",
+                "regression",
+                "generation",
+                "molecular_property_prediction"
+              ],
+              "dataset_requirements": [
+                "molecular structures",
+                "drug compound data",
+                "bioactivity data"
+              ],
+              "feature_requirements": [
+                "molecular descriptors",
+                "smiles strings",
+                "fingerprints"
+              ],
+              "target_requirements": [
+                "activity labels",
+                "binding affinity"
+              ],
+              "importance": 0.88
+            },
+            {
+              "id": "health.clinical.patient_monitoring",
+              "canonical_term": "patient monitoring",
+              "synonyms": [
+                "clinical monitoring",
+                "patient surveillance",
+                "health monitoring",
+                "vital signs monitoring"
+              ],
+              "aliases": [
+                "clinical monitoring"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "wearable data",
+                "icu monitoring",
+                "real time alerts"
+              ],
+              "potential_ml_tasks": [
+                "anomaly_detection",
+                "classification",
+                "time_series_forecasting"
+              ],
+              "dataset_requirements": [
+                "time series vitals",
+                "icu data",
+                "wearable data"
+              ],
+              "feature_requirements": [
+                "heart rate",
+                "blood pressure",
+                "oxygen saturation",
+                "temperature"
+              ],
+              "target_requirements": [
+                "alert labels",
+                "condition labels"
+              ],
+              "importance": 0.85
+            }
+          ]
+        },
+        "genomics": {
+          "label": "Genomics & Precision Medicine",
+          "concepts": [
+            {
+              "id": "health.genomics.gene_expression",
+              "canonical_term": "gene expression analysis",
+              "synonyms": [
+                "transcriptomics",
+                "gene expression profiling",
+                "RNA expression analysis"
+              ],
+              "aliases": [
+                "transcriptomics analysis"
+              ],
+              "abbreviations": [
+                "GEA"
+              ],
+              "related_concepts": [
+                "rna seq",
+                "microarray",
+                "differential expression"
+              ],
+              "potential_ml_tasks": [
+                "classification",
+                "clustering",
+                "feature_selection"
+              ],
+              "dataset_requirements": [
+                "gene expression matrices",
+                "rna seq data"
+              ],
+              "feature_requirements": [
+                "gene expression levels",
+                "sample metadata"
+              ],
+              "target_requirements": [
+                "disease labels",
+                "subtypes"
+              ],
+              "importance": 0.85
+            },
+            {
+              "id": "health.genomics.variant_classification",
+              "canonical_term": "genetic variant classification",
+              "synonyms": [
+                "variant interpretation",
+                "mutation classification",
+                "genetic variant analysis"
+              ],
+              "aliases": [
+                "variant interpretation"
+              ],
+              "abbreviations": [
+                "VC"
+              ],
+              "related_concepts": [
+                "whole genome sequencing",
+                "snp analysis",
+                "pathogenicity prediction"
+              ],
+              "potential_ml_tasks": [
+                "classification",
+                "regression"
+              ],
+              "dataset_requirements": [
+                "variant data",
+                "annotated genomic variants"
+              ],
+              "feature_requirements": [
+                "genomic position",
+                "conservation scores",
+                "functional annotations"
+              ],
+              "target_requirements": [
+                "pathogenicity labels"
+              ],
+              "importance": 0.82
+            }
+          ]
+        }
+      }
+    },
+    "finance": {
+      "label": "Finance",
+      "subdomains": {
+        "trading": {
+          "label": "Trading & Markets",
+          "concepts": [
+            {
+              "id": "finance.trading.algo_trading",
+              "canonical_term": "algorithmic trading",
+              "synonyms": [
+                "quantitative trading",
+                "automated trading",
+                "algo trading",
+                "systematic trading",
+                "HFT"
+              ],
+              "aliases": [
+                "quant trading"
+              ],
+              "abbreviations": [
+                "AT",
+                "HFT"
+              ],
+              "related_concepts": [
+                "time series forecasting",
+                "reinforcement learning",
+                "portfolio optimization"
+              ],
+              "potential_ml_tasks": [
+                "regression",
+                "classification",
+                "reinforcement_learning",
+                "time_series_forecasting"
+              ],
+              "dataset_requirements": [
+                "market data",
+                "price history",
+                "order book data"
+              ],
+              "feature_requirements": [
+                "price features",
+                "volume features",
+                "technical indicators"
+              ],
+              "target_requirements": [
+                "price direction",
+                "returns"
+              ],
+              "importance": 0.9
+            },
+            {
+              "id": "finance.trading.stock_prediction",
+              "canonical_term": "stock price prediction",
+              "synonyms": [
+                "stock forecasting",
+                "equity prediction",
+                "share price prediction",
+                "market prediction"
+              ],
+              "aliases": [
+                "equity prediction"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "time series forecasting",
+                "financial analysis",
+                "market analysis"
+              ],
+              "potential_ml_tasks": [
+                "regression",
+                "classification",
+                "time_series_forecasting"
+              ],
+              "dataset_requirements": [
+                "historical stock data",
+                "market indicators"
+              ],
+              "feature_requirements": [
+                "price data",
+                "volume",
+                "technical indicators",
+                "news sentiment"
+              ],
+              "target_requirements": [
+                "future prices",
+                "price direction"
+              ],
+              "importance": 0.88
+            },
+            {
+              "id": "finance.trading.portfolio_optimization",
+              "canonical_term": "portfolio optimization",
+              "synonyms": [
+                "asset allocation",
+                "portfolio management",
+                "investment optimization"
+              ],
+              "aliases": [
+                "asset allocation optimization"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "risk management",
+                "modern portfolio theory",
+                "sharpe ratio"
+              ],
+              "potential_ml_tasks": [
+                "optimization",
+                "regression",
+                "reinforcement_learning"
+              ],
+              "dataset_requirements": [
+                "asset returns",
+                "correlation matrices",
+                "market data"
+              ],
+              "feature_requirements": [
+                "asset returns",
+                "volatility",
+                "correlations"
+              ],
+              "target_requirements": [
+                "optimal weights"
+              ],
+              "importance": 0.82
+            }
+          ]
+        },
+        "risk": {
+          "label": "Risk & Compliance",
+          "concepts": [
+            {
+              "id": "finance.risk.credit_scoring",
+              "canonical_term": "credit scoring",
+              "synonyms": [
+                "credit risk assessment",
+                "creditworthiness evaluation",
+                "loan risk assessment",
+                "credit rating"
+              ],
+              "aliases": [
+                "credit risk scoring"
+              ],
+              "abbreviations": [
+                "CS"
+              ],
+              "related_concepts": [
+                "risk assessment",
+                "loan default prediction",
+                "financial classification"
+              ],
+              "potential_ml_tasks": [
+                "classification",
+                "regression",
+                "risk_scoring"
+              ],
+              "dataset_requirements": [
+                "credit history",
+                "loan applications",
+                "payment history"
+              ],
+              "feature_requirements": [
+                "income",
+                "debt ratio",
+                "payment history",
+                "credit utilization"
+              ],
+              "target_requirements": [
+                "default labels",
+                "risk scores"
+              ],
+              "importance": 0.9
+            },
+            {
+              "id": "finance.risk.market_risk",
+              "canonical_term": "market risk analysis",
+              "synonyms": [
+                "financial risk analysis",
+                "market risk assessment",
+                "risk modeling"
+              ],
+              "aliases": [
+                "risk modeling"
+              ],
+              "abbreviations": [
+                "VaR"
+              ],
+              "related_concepts": [
+                "value at risk",
+                "stress testing",
+                "monte carlo simulation"
+              ],
+              "potential_ml_tasks": [
+                "regression",
+                "simulation",
+                "classification"
+              ],
+              "dataset_requirements": [
+                "market data",
+                "portfolio data",
+                "risk factors"
+              ],
+              "feature_requirements": [
+                "market indicators",
+                "portfolio composition"
+              ],
+              "target_requirements": [
+                "risk measures",
+                "loss distributions"
+              ],
+              "importance": 0.85
+            },
+            {
+              "id": "finance.risk.anti_money_laundering",
+              "canonical_term": "anti-money laundering",
+              "synonyms": [
+                "AML",
+                "money laundering detection",
+                "suspicious transaction detection",
+                "financial crime detection"
+              ],
+              "aliases": [
+                "AML detection"
+              ],
+              "abbreviations": [
+                "AML"
+              ],
+              "related_concepts": [
+                "anomaly detection",
+                "transaction monitoring",
+                "compliance"
+              ],
+              "potential_ml_tasks": [
+                "anomaly_detection",
+                "binary_classification",
+                "graph_analysis"
+              ],
+              "dataset_requirements": [
+                "transaction records",
+                "customer data",
+                "suspicious activity reports"
+              ],
+              "feature_requirements": [
+                "transaction amounts",
+                "transaction patterns",
+                "network features"
+              ],
+              "target_requirements": [
+                "suspicious legitimate labels"
+              ],
+              "importance": 0.88
+            }
+          ]
+        }
+      }
+    },
+    "education": {
+      "label": "Education",
+      "subdomains": {
+        "edtech": {
+          "label": "Educational Technology",
+          "concepts": [
+            {
+              "id": "education.edtech.student_performance",
+              "canonical_term": "student performance prediction",
+              "synonyms": [
+                "academic performance prediction",
+                "student success prediction",
+                "grade prediction",
+                "learning outcome prediction"
+              ],
+              "aliases": [
+                "grade prediction"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "educational data mining",
+                "learning analytics",
+                "student retention"
+              ],
+              "potential_ml_tasks": [
+                "classification",
+                "regression"
+              ],
+              "dataset_requirements": [
+                "student records",
+                "academic data"
+              ],
+              "feature_requirements": [
+                "grades",
+                "attendance",
+                "demographics",
+                "engagement metrics"
+              ],
+              "target_requirements": [
+                "pass fail labels",
+                "gpa scores"
+              ],
+              "importance": 0.85
+            },
+            {
+              "id": "education.edtech.automated_grading",
+              "canonical_term": "automated grading",
+              "synonyms": [
+                "auto-grading",
+                "automated assessment",
+                "essay scoring",
+                "automated evaluation"
+              ],
+              "aliases": [
+                "auto-grading"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "nlp",
+                "text classification",
+                "rubric based scoring"
+              ],
+              "potential_ml_tasks": [
+                "regression",
+                "classification",
+                "text_classification"
+              ],
+              "dataset_requirements": [
+                "student submissions",
+                "graded essays",
+                "rubric aligned scores"
+              ],
+              "feature_requirements": [
+                "text content",
+                "rubric criteria"
+              ],
+              "target_requirements": [
+                "scores",
+                "grades"
+              ],
+              "importance": 0.82
+            },
+            {
+              "id": "education.edtech.recommendation",
+              "canonical_term": "learning path recommendation",
+              "synonyms": [
+                "course recommendation",
+                "educational recommendation",
+                "personalized learning",
+                "adaptive learning"
+              ],
+              "aliases": [
+                "course recommendation"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "recommendation systems",
+                "personalized education",
+                "learning analytics"
+              ],
+              "potential_ml_tasks": [
+                "recommendation",
+                "collaborative_filtering",
+                "classification"
+              ],
+              "dataset_requirements": [
+                "student interactions",
+                "course data",
+                "learning outcomes"
+              ],
+              "feature_requirements": [
+                "student profiles",
+                "content features",
+                "interaction history"
+              ],
+              "target_requirements": [
+                "course ratings",
+                "completion labels"
+              ],
+              "importance": 0.82
+            }
+          ]
+        },
+        "education_foundational": {
+          "label": "Education Foundational",
+          "concepts": [
+            {
+              "id": "edu.foundational.education",
+              "canonical_term": "education",
+              "synonyms": [
+                "academic",
+                "learning",
+                "teaching",
+                "schooling"
+              ],
+              "aliases": [
+                "educational"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "student performance",
+                "learning analytics",
+                "educational data mining"
+              ],
+              "potential_ml_tasks": [
+                "classification",
+                "regression",
+                "recommendation"
+              ],
+              "dataset_requirements": [
+                "student records",
+                "academic data"
+              ],
+              "feature_requirements": [
+                "student features",
+                "course features"
+              ],
+              "target_requirements": [
+                "academic outcomes"
+              ],
+              "importance": 0.9
+            },
+            {
+              "id": "edu.foundational.student_performance",
+              "canonical_term": "student performance",
+              "synonyms": [
+                "academic performance",
+                "student achievement",
+                "academic outcome",
+                "student outcomes",
+                "learning outcomes"
+              ],
+              "aliases": [
+                "student academic performance"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "student performance prediction",
+                "educational data mining",
+                "learning analytics"
+              ],
+              "potential_ml_tasks": [
+                "regression",
+                "classification"
+              ],
+              "dataset_requirements": [
+                "student records",
+                "academic data",
+                " grades"
+              ],
+              "feature_requirements": [
+                "attendance",
+                "scores",
+                "grades",
+                "study hours"
+              ],
+              "target_requirements": [
+                "GPA",
+                "pass fail",
+                "grade"
+              ],
+              "importance": 0.92
+            },
+            {
+              "id": "edu.foundational.attendance",
+              "canonical_term": "attendance",
+              "synonyms": [
+                "class attendance",
+                "attendance tracking",
+                "class presence",
+                "participation"
+              ],
+              "aliases": [
+                "school attendance"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "student performance",
+                "engagement",
+                "participation"
+              ],
+              "potential_ml_tasks": [
+                "regression",
+                "classification"
+              ],
+              "dataset_requirements": [
+                "attendance records",
+                "class schedules"
+              ],
+              "feature_requirements": [
+                "attendance dates",
+                "absence count",
+                "class type"
+              ],
+              "target_requirements": [
+                "attendance rate",
+                "present absent"
+              ],
+              "importance": 0.85
+            },
+            {
+              "id": "edu.foundational.examination",
+              "canonical_term": "examination",
+              "synonyms": [
+                "exam",
+                "assessment",
+                "test",
+                "quiz",
+                "evaluation"
+              ],
+              "aliases": [
+                "exam scores"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "test scores",
+                "academic assessment",
+                "student performance"
+              ],
+              "potential_ml_tasks": [
+                "regression",
+                "classification"
+              ],
+              "dataset_requirements": [
+                "exam results",
+                "test scores"
+              ],
+              "feature_requirements": [
+                "exam scores",
+                "question responses"
+              ],
+              "target_requirements": [
+                "final grade",
+                "pass fail"
+              ],
+              "importance": 0.85
+            },
+            {
+              "id": "edu.foundational.study_hours",
+              "canonical_term": "study hours",
+              "synonyms": [
+                "study time",
+                "learning time",
+                "homework hours",
+                "revision time"
+              ],
+              "aliases": [
+                "hours studied"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "student performance",
+                "engagement",
+                "time on task"
+              ],
+              "potential_ml_tasks": [
+                "regression",
+                "correlation analysis"
+              ],
+              "dataset_requirements": [
+                "student activity logs",
+                "time tracking data"
+              ],
+              "feature_requirements": [
+                "hours per subject",
+                "study patterns"
+              ],
+              "target_requirements": [
+                "performance outcomes"
+              ],
+              "importance": 0.82
+            },
+            {
+              "id": "edu.foundational.class_participation",
+              "canonical_term": "class participation",
+              "synonyms": [
+                "participation",
+                "class engagement",
+                "student engagement",
+                "class interaction"
+              ],
+              "aliases": [
+                "class participation"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "student performance",
+                "engagement",
+                "attendance"
+              ],
+              "potential_ml_tasks": [
+                "regression",
+                "classification"
+              ],
+              "dataset_requirements": [
+                "participation records",
+                "engagement data"
+              ],
+              "feature_requirements": [
+                "participation count",
+                "interaction type"
+              ],
+              "target_requirements": [
+                "performance outcomes"
+              ],
+              "importance": 0.82
+            },
+            {
+              "id": "edu.foundational.assignment_scores",
+              "canonical_term": "assignment scores",
+              "synonyms": [
+                "homework scores",
+                "assignment grades",
+                "coursework marks",
+                "assignment results"
+              ],
+              "aliases": [
+                "homework marks"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "student performance",
+                "assessment",
+                "academic grading"
+              ],
+              "potential_ml_tasks": [
+                "regression",
+                "classification"
+              ],
+              "dataset_requirements": [
+                "assignment submissions",
+                "graded assignments"
+              ],
+              "feature_requirements": [
+                "assignment type",
+                "submission time",
+                "score"
+              ],
+              "target_requirements": [
+                "grade",
+                "pass fail"
+              ],
+              "importance": 0.82
+            },
+            {
+              "id": "edu.foundational.student",
+              "canonical_term": "student",
+              "synonyms": [
+                "pupil",
+                "learner",
+                "scholar",
+                "enrollee"
+              ],
+              "aliases": [
+                "student learner"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "student performance",
+                "education",
+                "attendance"
+              ],
+              "potential_ml_tasks": [
+                "classification",
+                "regression"
+              ],
+              "dataset_requirements": [
+                "student records"
+              ],
+              "feature_requirements": [
+                "student demographics",
+                "academic history"
+              ],
+              "target_requirements": [
+                "performance labels"
+              ],
+              "importance": 0.85
+            }
+          ]
+        }
+      }
+    },
+    "agriculture": {
+      "label": "Agriculture",
+      "subdomains": {
+        "precision_agriculture": {
+          "label": "Precision Agriculture",
+          "concepts": [
+            {
+              "id": "agri.precision.crop_yield",
+              "canonical_term": "crop yield prediction",
+              "synonyms": [
+                "yield forecasting",
+                "harvest prediction",
+                "crop production prediction"
+              ],
+              "aliases": [
+                "yield forecasting"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "remote sensing",
+                "soil analysis",
+                "weather forecasting"
+              ],
+              "potential_ml_tasks": [
+                "regression",
+                "time_series_forecasting"
+              ],
+              "dataset_requirements": [
+                "historical yield data",
+                "soil data",
+                "weather data",
+                "satellite imagery"
+              ],
+              "feature_requirements": [
+                "temperature",
+                "rainfall",
+                "soil nutrients",
+                "ndvi"
+              ],
+              "target_requirements": [
+                "yield values"
+              ],
+              "importance": 0.88
+            },
+            {
+              "id": "agri.precision.plant_disease",
+              "canonical_term": "plant disease detection",
+              "synonyms": [
+                "crop disease detection",
+                "plant pathology",
+                "leaf disease classification",
+                "disease identification"
+              ],
+              "aliases": [
+                "crop disease detection"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "image classification",
+                "remote sensing",
+                "computer vision"
+              ],
+              "potential_ml_tasks": [
+                "classification",
+                "detection"
+              ],
+              "dataset_requirements": [
+                "plant images",
+                "disease annotated images"
+              ],
+              "feature_requirements": [
+                "image data",
+                "leaf features"
+              ],
+              "target_requirements": [
+                "disease labels"
+              ],
+              "importance": 0.85
+            },
+            {
+              "id": "agri.precision.weed_detection",
+              "canonical_term": "weed detection",
+              "synonyms": [
+                "weed identification",
+                "weed recognition",
+                "weed classification"
+              ],
+              "aliases": [
+                "weed identification"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "object detection",
+                "precision spraying",
+                "robotic weeding"
+              ],
+              "potential_ml_tasks": [
+                "object_detection",
+                "classification",
+                "semantic_segmentation"
+              ],
+              "dataset_requirements": [
+                "field images",
+                "annotated weed images"
+              ],
+              "feature_requirements": [
+                "image data",
+                "spectral features"
+              ],
+              "target_requirements": [
+                "weed species labels",
+                "weed locations"
+              ],
+              "importance": 0.8
+            }
+          ]
+        }
+      }
+    },
+    "environment": {
+      "label": "Environment & Climate",
+      "subdomains": {
+        "climate_science": {
+          "label": "Climate Science",
+          "concepts": [
+            {
+              "id": "env.climate.weather_forecasting",
+              "canonical_term": "weather forecasting",
+              "synonyms": [
+                "meteorological prediction",
+                "weather prediction",
+                "atmospheric forecasting",
+                "climate prediction"
+              ],
+              "aliases": [
+                "meteorological prediction"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "time series forecasting",
+                "numerical weather prediction",
+                "climate modeling"
+              ],
+              "potential_ml_tasks": [
+                "regression",
+                "time_series_forecasting",
+                "classification"
+              ],
+              "dataset_requirements": [
+                "historical weather data",
+                "atmospheric measurements",
+                "satellite data"
+              ],
+              "feature_requirements": [
+                "temperature",
+                "humidity",
+                "pressure",
+                "wind speed",
+                "precipitation"
+              ],
+              "target_requirements": [
+                "future weather conditions"
+              ],
+              "importance": 0.88
+            },
+            {
+              "id": "env.climate.climate_change",
+              "canonical_term": "climate change analysis",
+              "synonyms": [
+                "global warming analysis",
+                "climate trend analysis",
+                "climate impact assessment"
+              ],
+              "aliases": [
+                "climate trend analysis"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "time series analysis",
+                "environmental monitoring",
+                "carbon footprint"
+              ],
+              "potential_ml_tasks": [
+                "regression",
+                "classification",
+                "time_series_forecasting"
+              ],
+              "dataset_requirements": [
+                "historical climate data",
+                "co2 measurements",
+                "temperature records"
+              ],
+              "feature_requirements": [
+                "temperature trends",
+                "co2 levels",
+                "sea level"
+              ],
+              "target_requirements": [
+                "climate indicators"
+              ],
+              "importance": 0.85
+            },
+            {
+              "id": "env.climate.air_quality",
+              "canonical_term": "air quality monitoring",
+              "synonyms": [
+                "pollution monitoring",
+                "air quality prediction",
+                "atmospheric pollution analysis"
+              ],
+              "aliases": [
+                "pollution monitoring"
+              ],
+              "abbreviations": [
+                "AQI"
+              ],
+              "related_concepts": [
+                "environmental monitoring",
+                "health impact",
+                "sensor data"
+              ],
+              "potential_ml_tasks": [
+                "regression",
+                "classification",
+                "time_series_forecasting"
+              ],
+              "dataset_requirements": [
+                "air quality measurements",
+                "sensor data",
+                "meteorological data"
+              ],
+              "feature_requirements": [
+                "pm25",
+                "pm10",
+                "no2",
+                "so2",
+                "co",
+                "weather"
+              ],
+              "target_requirements": [
+                "aqi values",
+                "pollution levels"
+              ],
+              "importance": 0.82
+            }
+          ]
+        }
+      }
+    },
+    "energy": {
+      "label": "Energy",
+      "subdomains": {
+        "smart_grid": {
+          "label": "Smart Grid & Renewables",
+          "concepts": [
+            {
+              "id": "energy.smart_grid.demand_forecasting",
+              "canonical_term": "energy demand forecasting",
+              "synonyms": [
+                "electricity demand prediction",
+                "load forecasting",
+                "power demand prediction"
+              ],
+              "aliases": [
+                "load forecasting"
+              ],
+              "abbreviations": [
+                "EDF"
+              ],
+              "related_concepts": [
+                "time series forecasting",
+                "grid management",
+                "capacity planning"
+              ],
+              "potential_ml_tasks": [
+                "regression",
+                "time_series_forecasting"
+              ],
+              "dataset_requirements": [
+                "historical consumption data",
+                "weather data",
+                "grid data"
+              ],
+              "feature_requirements": [
+                "time features",
+                "weather",
+                "historical load",
+                "holidays"
+              ],
+              "target_requirements": [
+                "future demand values"
+              ],
+              "importance": 0.88
+            },
+            {
+              "id": "energy.smart_grid.fault_detection",
+              "canonical_term": "power grid fault detection",
+              "synonyms": [
+                "grid fault detection",
+                "power system fault detection",
+                "electrical fault detection"
+              ],
+              "aliases": [
+                "grid fault detection"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "anomaly detection",
+                "predictive maintenance",
+                "power systems"
+              ],
+              "potential_ml_tasks": [
+                "binary_classification",
+                "anomaly_detection",
+                "multi_class_classification"
+              ],
+              "dataset_requirements": [
+                "grid sensor data",
+                "fault logs"
+              ],
+              "feature_requirements": [
+                "voltage",
+                "current",
+                "frequency",
+                "power factor"
+              ],
+              "target_requirements": [
+                "fault type labels"
+              ],
+              "importance": 0.82
+            },
+            {
+              "id": "energy.solar_prediction",
+              "canonical_term": "solar energy prediction",
+              "synonyms": [
+                "solar power forecasting",
+                "solar irradiance prediction",
+                "photovoltaic output prediction"
+              ],
+              "aliases": [
+                "solar power forecasting"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "renewable energy",
+                "weather forecasting",
+                "grid integration"
+              ],
+              "potential_ml_tasks": [
+                "regression",
+                "time_series_forecasting"
+              ],
+              "dataset_requirements": [
+                "solar irradiance data",
+                "weather data",
+                "panel specifications"
+              ],
+              "feature_requirements": [
+                "irradiance",
+                "temperature",
+                "cloud cover",
+                "panel angle"
+              ],
+              "target_requirements": [
+                "power output"
+              ],
+              "importance": 0.8
+            }
+          ]
+        },
+        "energy_foundational": {
+          "label": "Energy Foundational",
+          "concepts": [
+            {
+              "id": "energy.foundational.energy_consumption",
+              "canonical_term": "energy consumption",
+              "synonyms": [
+                "electricity usage",
+                "power consumption",
+                "energy usage",
+                "electricity consumption"
+              ],
+              "aliases": [
+                "energy use"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "energy demand forecasting",
+                "smart grid",
+                "load forecasting"
+              ],
+              "potential_ml_tasks": [
+                "regression",
+                "time series forecasting"
+              ],
+              "dataset_requirements": [
+                "energy usage data",
+                "smart meter data"
+              ],
+              "feature_requirements": [
+                "time of day",
+                "temperature",
+                "building type"
+              ],
+              "target_requirements": [
+                "energy consumption values"
+              ],
+              "importance": 0.9
+            },
+            {
+              "id": "energy.foundational.electricity",
+              "canonical_term": "electricity",
+              "synonyms": [
+                "electric power",
+                "power",
+                "electric energy"
+              ],
+              "aliases": [
+                "electric"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "energy consumption",
+                "power grid",
+                "smart grid"
+              ],
+              "potential_ml_tasks": [
+                "regression",
+                "forecasting"
+              ],
+              "dataset_requirements": [
+                "power generation data",
+                "grid data"
+              ],
+              "feature_requirements": [
+                "generation capacity",
+                "demand"
+              ],
+              "target_requirements": [
+                "power output"
+              ],
+              "importance": 0.85
+            },
+            {
+              "id": "energy.foundational.energy_forecasting",
+              "canonical_term": "energy forecasting",
+              "synonyms": [
+                "energy prediction",
+                "power forecasting",
+                "demand forecasting"
+              ],
+              "aliases": [
+                "energy demand prediction"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "energy demand forecasting",
+                "load forecasting",
+                "time series forecasting"
+              ],
+              "potential_ml_tasks": [
+                "regression",
+                "time series forecasting"
+              ],
+              "dataset_requirements": [
+                "historical energy data",
+                "weather data"
+              ],
+              "feature_requirements": [
+                "time features",
+                "weather",
+                "historical usage"
+              ],
+              "target_requirements": [
+                "future energy values"
+              ],
+              "importance": 0.85
+            }
+          ]
+        }
+      }
+    },
+    "manufacturing": {
+      "label": "Manufacturing",
+      "subdomains": {
+        "quality_control": {
+          "label": "Quality Control",
+          "concepts": [
+            {
+              "id": "mfg.quality.defect_detection",
+              "canonical_term": "defect detection",
+              "synonyms": [
+                "quality inspection",
+                "manufacturing defect detection",
+                "surface defect detection",
+                "visual inspection"
+              ],
+              "aliases": [
+                "quality inspection"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "computer vision",
+                "image classification",
+                "quality control"
+              ],
+              "potential_ml_tasks": [
+                "binary_classification",
+                "detection",
+                "segmentation"
+              ],
+              "dataset_requirements": [
+                "product images",
+                "defect annotated images"
+              ],
+              "feature_requirements": [
+                "image data",
+                "surface features"
+              ],
+              "target_requirements": [
+                "defect no defect labels",
+                "defect type labels"
+              ],
+              "importance": 0.88
+            },
+            {
+              "id": "mfg.quality.predictive_maintenance",
+              "canonical_term": "predictive maintenance",
+              "synonyms": [
+                "equipment maintenance prediction",
+                "condition-based maintenance",
+                "fault prediction",
+                "predictive upkeep"
+              ],
+              "aliases": [
+                "condition-based maintenance"
+              ],
+              "abbreviations": [
+                "PdM"
+              ],
+              "related_concepts": [
+                "anomaly detection",
+                "time series forecasting",
+                "iot sensors"
+              ],
+              "potential_ml_tasks": [
+                "classification",
+                "regression",
+                "anomaly_detection",
+                "time_series_forecasting"
+              ],
+              "dataset_requirements": [
+                "sensor data",
+                "maintenance logs",
+                "equipment telemetry"
+              ],
+              "feature_requirements": [
+                "vibration",
+                "temperature",
+                "pressure",
+                "operating hours"
+              ],
+              "target_requirements": [
+                "failure labels",
+                "remaining useful life"
+              ],
+              "importance": 0.9
+            },
+            {
+              "id": "mfg.quality.process_optimization",
+              "canonical_term": "manufacturing process optimization",
+              "synonyms": [
+                "process optimization",
+                "production optimization",
+                "manufacturing efficiency"
+              ],
+              "aliases": [
+                "process optimization"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "operations research",
+                "process control",
+                "lean manufacturing"
+              ],
+              "potential_ml_tasks": [
+                "regression",
+                "optimization",
+                "classification"
+              ],
+              "dataset_requirements": [
+                "process parameters",
+                "production data",
+                "quality metrics"
+              ],
+              "feature_requirements": [
+                "process settings",
+                "raw material properties",
+                "environmental conditions"
+              ],
+              "target_requirements": [
+                "quality scores",
+                "yield values"
+              ],
+              "importance": 0.82
+            }
+          ]
+        }
+      }
+    },
+    "transportation": {
+      "label": "Transportation",
+      "subdomains": {
+        "autonomous_vehicles": {
+          "label": "Autonomous Vehicles",
+          "concepts": [
+            {
+              "id": "transport.auto.self_driving",
+              "canonical_term": "autonomous driving",
+              "synonyms": [
+                "self-driving",
+                "automated driving",
+                "driverless vehicles",
+                "autonomous vehicles"
+              ],
+              "aliases": [
+                "self-driving cars"
+              ],
+              "abbreviations": [
+                "AD"
+              ],
+              "related_concepts": [
+                "computer vision",
+                "sensor fusion",
+                "path planning"
+              ],
+              "potential_ml_tasks": [
+                "object_detection",
+                "semantic_segmentation",
+                "classification",
+                "regression"
+              ],
+              "dataset_requirements": [
+                "driving datasets",
+                "lidar data",
+                "camera data",
+                "radar data"
+              ],
+              "feature_requirements": [
+                "sensor data",
+                "camera images",
+                "lidar point clouds"
+              ],
+              "target_requirements": [
+                "bounding boxes",
+                "segmentation masks",
+                "steering angles"
+              ],
+              "importance": 0.92
+            },
+            {
+              "id": "transport.auto.traffic_prediction",
+              "canonical_term": "traffic prediction",
+              "synonyms": [
+                "traffic forecasting",
+                "traffic flow prediction",
+                "congestion prediction"
+              ],
+              "aliases": [
+                "traffic forecasting"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "time series forecasting",
+                "smart cities",
+                "urban planning"
+              ],
+              "potential_ml_tasks": [
+                "regression",
+                "time_series_forecasting",
+                "classification"
+              ],
+              "dataset_requirements": [
+                "traffic flow data",
+                "road sensor data",
+                "historical traffic"
+              ],
+              "feature_requirements": [
+                "time of day",
+                "day of week",
+                "weather",
+                "road topology"
+              ],
+              "target_requirements": [
+                "traffic volume",
+                "speed",
+                "congestion level"
+              ],
+              "importance": 0.85
+            },
+            {
+              "id": "transport.auto.route_optimization",
+              "canonical_term": "route optimization",
+              "synonyms": [
+                "path planning",
+                "navigation optimization",
+                "trip optimization",
+                "logistics routing"
+              ],
+              "aliases": [
+                "navigation optimization"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "operations research",
+                "graph algorithms",
+                "delivery optimization"
+              ],
+              "potential_ml_tasks": [
+                "optimization",
+                "reinforcement_learning"
+              ],
+              "dataset_requirements": [
+                "road networks",
+                "traffic patterns",
+                "delivery data"
+              ],
+              "feature_requirements": [
+                "distance",
+                "traffic",
+                "time windows",
+                "vehicle capacity"
+              ],
+              "target_requirements": [
+                "optimal routes"
+              ],
+              "importance": 0.82
+            }
+          ]
+        },
+        "logistics": {
+          "label": "Logistics & Supply Chain",
+          "concepts": [
+            {
+              "id": "transport.logistics.demand_forecasting",
+              "canonical_term": "demand forecasting",
+              "synonyms": [
+                "demand prediction",
+                "sales forecasting",
+                "volume prediction",
+                "consumption forecasting"
+              ],
+              "aliases": [
+                "sales forecasting"
+              ],
+              "abbreviations": [
+                "DF"
+              ],
+              "related_concepts": [
+                "time series forecasting",
+                "supply chain optimization",
+                "inventory management"
+              ],
+              "potential_ml_tasks": [
+                "regression",
+                "time_series_forecasting"
+              ],
+              "dataset_requirements": [
+                "historical sales data",
+                "inventory data",
+                "promotional data"
+              ],
+              "feature_requirements": [
+                "time features",
+                "promotions",
+                "seasonality",
+                "economic indicators"
+              ],
+              "target_requirements": [
+                "demand values"
+              ],
+              "importance": 0.88
+            },
+            {
+              "id": "transport.logistics.delivery_optimization",
+              "canonical_term": "delivery optimization",
+              "synonyms": [
+                "last-mile delivery",
+                "fleet management",
+                "delivery scheduling",
+                "shipment optimization"
+              ],
+              "aliases": [
+                "fleet management optimization"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "route optimization",
+                "operations research",
+                "vehicle routing"
+              ],
+              "potential_ml_tasks": [
+                "optimization",
+                "classification",
+                "regression"
+              ],
+              "dataset_requirements": [
+                "delivery records",
+                "fleet data",
+                "route data"
+              ],
+              "feature_requirements": [
+                "delivery locations",
+                "time windows",
+                "vehicle capacities"
+              ],
+              "target_requirements": [
+                "optimized schedules",
+                "cost values"
+              ],
+              "importance": 0.82
+            }
+          ]
+        }
+      }
+    },
+    "iot": {
+      "label": "Internet of Things (IoT)",
+      "subdomains": {
+        "smart_cities": {
+          "label": "Smart Cities",
+          "concepts": [
+            {
+              "id": "iot.smart_cities.traffic_management",
+              "canonical_term": "smart traffic management",
+              "synonyms": [
+                "intelligent traffic system",
+                "adaptive traffic control",
+                "urban traffic optimization"
+              ],
+              "aliases": [
+                "intelligent transportation system"
+              ],
+              "abbreviations": [
+                "ITS"
+              ],
+              "related_concepts": [
+                "traffic prediction",
+                "smart infrastructure",
+                "urban planning"
+              ],
+              "potential_ml_tasks": [
+                "classification",
+                "regression",
+                "optimization",
+                "time_series_forecasting"
+              ],
+              "dataset_requirements": [
+                "traffic sensor data",
+                "camera feeds",
+                "signal timing data"
+              ],
+              "feature_requirements": [
+                "traffic volume",
+                "signal timing",
+                "road conditions"
+              ],
+              "target_requirements": [
+                "optimal signal timing",
+                "congestion levels"
+              ],
+              "importance": 0.85
+            },
+            {
+              "id": "iot.smart_cities.energy_management",
+              "canonical_term": "smart energy management",
+              "synonyms": [
+                "building energy optimization",
+                "smart grid management",
+                "energy efficiency optimization"
+              ],
+              "aliases": [
+                "building energy optimization"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "energy forecasting",
+                "building automation",
+                "demand response"
+              ],
+              "potential_ml_tasks": [
+                "regression",
+                "classification",
+                "time_series_forecasting"
+              ],
+              "dataset_requirements": [
+                "building energy data",
+                "occupancy data",
+                "weather data"
+              ],
+              "feature_requirements": [
+                "energy consumption",
+                "occupancy",
+                "weather",
+                "time"
+              ],
+              "target_requirements": [
+                "energy savings",
+                "optimization targets"
+              ],
+              "importance": 0.82
+            },
+            {
+              "id": "iot.smart_cities.waste_management",
+              "canonical_term": "smart waste management",
+              "synonyms": [
+                "waste collection optimization",
+                "smart bin monitoring",
+                "waste reduction"
+              ],
+              "aliases": [
+                "waste collection optimization"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "sensor networks",
+                "route optimization",
+                "environmental monitoring"
+              ],
+              "potential_ml_tasks": [
+                "classification",
+                "regression",
+                "optimization"
+              ],
+              "dataset_requirements": [
+                "sensor data",
+                "collection routes",
+                "fill level data"
+              ],
+              "feature_requirements": [
+                "fill levels",
+                "location",
+                "collection frequency"
+              ],
+              "target_requirements": [
+                "collection schedules",
+                "route plans"
+              ],
+              "importance": 0.78
+            }
+          ]
+        },
+        "sensor_analytics": {
+          "label": "Sensor Analytics",
+          "concepts": [
+            {
+              "id": "iot.sensor.anomaly_detection",
+              "canonical_term": "IoT sensor anomaly detection",
+              "synonyms": [
+                "sensor anomaly detection",
+                "device anomaly detection",
+                "sensor fault detection"
+              ],
+              "aliases": [
+                "sensor anomaly detection"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "anomaly detection",
+                "time series analysis",
+                "predictive maintenance"
+              ],
+              "potential_ml_tasks": [
+                "anomaly_detection",
+                "classification",
+                "regression"
+              ],
+              "dataset_requirements": [
+                "sensor time series",
+                "labeled anomalies"
+              ],
+              "feature_requirements": [
+                "sensor readings",
+                "time features",
+                "device metadata"
+              ],
+              "target_requirements": [
+                "anomaly labels"
+              ],
+              "importance": 0.85
+            },
+            {
+              "id": "iot.sensor.fault_prediction",
+              "canonical_term": "sensor fault prediction",
+              "synonyms": [
+                "sensor failure prediction",
+                "device failure prediction",
+                "equipment failure prediction"
+              ],
+              "aliases": [
+                "sensor failure prediction"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "predictive maintenance",
+                "reliability engineering",
+                "survival analysis"
+              ],
+              "potential_ml_tasks": [
+                "classification",
+                "regression",
+                "survival_analysis"
+              ],
+              "dataset_requirements": [
+                "sensor history",
+                "failure logs",
+                "maintenance records"
+              ],
+              "feature_requirements": [
+                "sensor drift",
+                "operating conditions",
+                "age"
+              ],
+              "target_requirements": [
+                "failure time",
+                "failure labels"
+              ],
+              "importance": 0.82
+            }
+          ]
+        },
+        "iot_foundational": {
+          "label": "IoT Foundational",
+          "concepts": [
+            {
+              "id": "iot.foundational.internet_of_things",
+              "canonical_term": "internet of things",
+              "synonyms": [
+                "IoT",
+                "connected devices",
+                "smart devices",
+                "wireless sensor networks"
+              ],
+              "aliases": [
+                "machine to machine",
+                "M2M"
+              ],
+              "abbreviations": [
+                "IoT"
+              ],
+              "related_concepts": [
+                "sensor data",
+                "edge computing",
+                "smart cities",
+                "iot devices"
+              ],
+              "potential_ml_tasks": [
+                "anomaly detection",
+                "classification",
+                "time series forecasting"
+              ],
+              "dataset_requirements": [
+                "sensor readings",
+                "device telemetry"
+              ],
+              "feature_requirements": [
+                "sensor values",
+                "device identifiers",
+                "timestamps"
+              ],
+              "target_requirements": [
+                "device status",
+                "anomaly labels"
+              ],
+              "importance": 0.92
+            },
+            {
+              "id": "iot.foundational.iot_devices",
+              "canonical_term": "iot devices",
+              "synonyms": [
+                "smart devices",
+                "connected devices",
+                "sensor nodes",
+                "edge devices"
+              ],
+              "aliases": [
+                "iot device"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "internet of things",
+                "sensor data",
+                "edge computing"
+              ],
+              "potential_ml_tasks": [
+                "classification",
+                "anomaly detection",
+                "prediction"
+              ],
+              "dataset_requirements": [
+                "device logs",
+                "telemetry data"
+              ],
+              "feature_requirements": [
+                "device type",
+                "firmware version",
+                "network info"
+              ],
+              "target_requirements": [
+                "device status",
+                "failure labels"
+              ],
+              "importance": 0.88
+            },
+            {
+              "id": "iot.foundational.sensor_data",
+              "canonical_term": "sensor data",
+              "synonyms": [
+                "telemetry",
+                "sensor readings",
+                "measurements",
+                "instrument readings"
+              ],
+              "aliases": [],
+              "abbreviations": [],
+              "related_concepts": [
+                "iot devices",
+                "time series",
+                "anomaly detection"
+              ],
+              "potential_ml_tasks": [
+                "regression",
+                "classification",
+                "anomaly detection"
+              ],
+              "dataset_requirements": [
+                "sensor logs",
+                "measurement data"
+              ],
+              "feature_requirements": [
+                "sensor values",
+                "timestamps",
+                "sensor type"
+              ],
+              "target_requirements": [
+                "measurement targets",
+                "anomaly labels"
+              ],
+              "importance": 0.85
+            },
+            {
+              "id": "iot.foundational.edge_computing",
+              "canonical_term": "edge computing",
+              "synonyms": [
+                "fog computing",
+                "on device processing",
+                "distributed computing"
+              ],
+              "aliases": [],
+              "abbreviations": [],
+              "related_concepts": [
+                "iot devices",
+                "real time processing",
+                "embedded systems"
+              ],
+              "potential_ml_tasks": [
+                "classification",
+                "detection"
+              ],
+              "dataset_requirements": [
+                "device data",
+                "resource constraints"
+              ],
+              "feature_requirements": [
+                "compute resources",
+                "latency requirements"
+              ],
+              "target_requirements": [
+                "processing decisions"
+              ],
+              "importance": 0.8
+            }
+          ]
+        }
+      }
+    },
+    "retail": {
+      "label": "Retail & E-commerce",
+      "subdomains": {
+        "recommendation": {
+          "label": "Recommendation Systems",
+          "concepts": [
+            {
+              "id": "retail.rec.product_recommendation",
+              "canonical_term": "product recommendation",
+              "synonyms": [
+                "item recommendation",
+                "collaborative filtering",
+                "recommendation engine",
+                "personalized recommendations"
+              ],
+              "aliases": [
+                "recommendation engine"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "collaborative filtering",
+                "content based filtering",
+                "hybrid recommendation"
+              ],
+              "potential_ml_tasks": [
+                "recommendation",
+                "ranking",
+                "collaborative_filtering"
+              ],
+              "dataset_requirements": [
+                "user item interactions",
+                "product catalog",
+                "user profiles"
+              ],
+              "feature_requirements": [
+                "user features",
+                "item features",
+                "interaction history"
+              ],
+              "target_requirements": [
+                "ratings",
+                "clicks",
+                "purchases"
+              ],
+              "importance": 0.92
+            },
+            {
+              "id": "retail.rec.search_ranking",
+              "canonical_term": "search result ranking",
+              "synonyms": [
+                "query ranking",
+                "search relevance",
+                "result personalization"
+              ],
+              "aliases": [
+                "search relevance ranking"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "information retrieval",
+                "learning to rank",
+                "query understanding"
+              ],
+              "potential_ml_tasks": [
+                "ranking",
+                "classification",
+                "regression"
+              ],
+              "dataset_requirements": [
+                "search logs",
+                "click through data",
+                "query document pairs"
+              ],
+              "feature_requirements": [
+                "query features",
+                "document features",
+                "user features"
+              ],
+              "target_requirements": [
+                "relevance labels",
+                "click labels"
+              ],
+              "importance": 0.85
+            }
+          ]
+        },
+        "forecasting": {
+          "label": "Demand & Sales Forecasting",
+          "concepts": [
+            {
+              "id": "retail.forecast.sales_forecasting",
+              "canonical_term": "sales forecasting",
+              "synonyms": [
+                "revenue prediction",
+                "sales prediction",
+                "revenue forecasting",
+                "retail demand prediction"
+              ],
+              "aliases": [
+                "revenue prediction"
+              ],
+              "abbreviations": [
+                "SF"
+              ],
+              "related_concepts": [
+                "time series forecasting",
+                "demand planning",
+                "inventory optimization"
+              ],
+              "potential_ml_tasks": [
+                "regression",
+                "time_series_forecasting"
+              ],
+              "dataset_requirements": [
+                "historical sales data",
+                "promotional data",
+                "economic indicators"
+              ],
+              "feature_requirements": [
+                "time features",
+                "promotions",
+                "seasonality",
+                "price"
+              ],
+              "target_requirements": [
+                "future sales values"
+              ],
+              "importance": 0.9
+            },
+            {
+              "id": "retail.forecast.customer_churn",
+              "canonical_term": "customer churn prediction",
+              "synonyms": [
+                "churn prediction",
+                "customer attrition prediction",
+                "customer retention",
+                "customer defection prediction"
+              ],
+              "aliases": [
+                "churn prediction"
+              ],
+              "abbreviations": [
+                "CCP"
+              ],
+              "related_concepts": [
+                "classification",
+                "customer analytics",
+                "retention analysis"
+              ],
+              "potential_ml_tasks": [
+                "binary_classification",
+                "survival_analysis"
+              ],
+              "dataset_requirements": [
+                "customer behavior data",
+                "transaction history",
+                "engagement metrics"
+              ],
+              "feature_requirements": [
+                "recency",
+                "frequency",
+                "monetary value",
+                "engagement scores"
+              ],
+              "target_requirements": [
+                "churn labels"
+              ],
+              "importance": 0.88
+            }
+          ]
+        }
+      }
+    },
+    "social_media": {
+      "label": "Social Media",
+      "subdomains": {
+        "content_analysis": {
+          "label": "Content Analysis",
+          "concepts": [
+            {
+              "id": "social.content.viral_prediction",
+              "canonical_term": "viral content prediction",
+              "synonyms": [
+                "content virality prediction",
+                "engagement prediction",
+                "popularity prediction",
+                "share prediction"
+              ],
+              "aliases": [
+                "content virality prediction"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "engagement analysis",
+                "social network analysis",
+                "content optimization"
+              ],
+              "potential_ml_tasks": [
+                "classification",
+                "regression",
+                "survival_analysis"
+              ],
+              "dataset_requirements": [
+                "social media posts",
+                "engagement metrics",
+                "content features"
+              ],
+              "feature_requirements": [
+                "text features",
+                "image features",
+                "temporal features",
+                "user features"
+              ],
+              "target_requirements": [
+                "engagement counts",
+                "viral labels"
+              ],
+              "importance": 0.85
+            },
+            {
+              "id": "social.content.misinformation_detection",
+              "canonical_term": "misinformation detection",
+              "synonyms": [
+                "fake news detection",
+                "rumor detection",
+                "fact checking",
+                "disinformation detection"
+              ],
+              "aliases": [
+                "fake news detection"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "fact checking",
+                "credibility assessment",
+                "stance detection"
+              ],
+              "potential_ml_tasks": [
+                "binary_classification",
+                "multi_class_classification",
+                "stance_detection"
+              ],
+              "dataset_requirements": [
+                "news articles",
+                "social posts",
+                "fact checked claims"
+              ],
+              "feature_requirements": [
+                "text content",
+                "source features",
+                "propagation features"
+              ],
+              "target_requirements": [
+                "credibility labels"
+              ],
+              "importance": 0.88
+            },
+            {
+              "id": "social.content.toxicity_detection",
+              "canonical_term": "toxicity detection",
+              "synonyms": [
+                "hate speech detection",
+                "offensive language detection",
+                "abuse detection",
+                "content moderation"
+              ],
+              "aliases": [
+                "hate speech detection"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "content moderation",
+                "sentiment analysis",
+                "text classification"
+              ],
+              "potential_ml_tasks": [
+                "binary_classification",
+                "multi_label_classification"
+              ],
+              "dataset_requirements": [
+                "labeled comments",
+                "social media posts"
+              ],
+              "feature_requirements": [
+                "text content",
+                "context features"
+              ],
+              "target_requirements": [
+                "toxicity labels",
+                "toxicity scores"
+              ],
+              "importance": 0.85
+            }
+          ]
+        }
+      }
+    },
+    "sports_analytics": {
+      "label": "Sports Analytics",
+      "subdomains": {
+        "performance": {
+          "label": "Performance Analytics",
+          "concepts": [
+            {
+              "id": "sports.performance.player_rating",
+              "canonical_term": "player performance rating",
+              "synonyms": [
+                "athlete performance evaluation",
+                "player assessment",
+                "performance scoring"
+              ],
+              "aliases": [
+                "athlete performance evaluation"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "sports statistics",
+                "player valuation",
+                "talent identification"
+              ],
+              "potential_ml_tasks": [
+                "regression",
+                "classification",
+                "clustering"
+              ],
+              "dataset_requirements": [
+                "match statistics",
+                "player stats",
+                "training data"
+              ],
+              "feature_requirements": [
+                "game metrics",
+                "physical stats",
+                "historical performance"
+              ],
+              "target_requirements": [
+                "performance scores",
+                "ratings"
+              ],
+              "importance": 0.82
+            },
+            {
+              "id": "sports.performance.injury_prediction",
+              "canonical_term": "sports injury prediction",
+              "synonyms": [
+                "injury risk prediction",
+                "athlete injury forecasting",
+                "injury prevention"
+              ],
+              "aliases": [
+                "injury risk prediction"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "predictive analytics",
+                "sports medicine",
+                "workload monitoring"
+              ],
+              "potential_ml_tasks": [
+                "binary_classification",
+                "survival_analysis",
+                "regression"
+              ],
+              "dataset_requirements": [
+                "player training data",
+                "injury history",
+                "match data"
+              ],
+              "feature_requirements": [
+                "training load",
+                "match intensity",
+                "fatigue metrics"
+              ],
+              "target_requirements": [
+                "injury labels",
+                "injury severity"
+              ],
+              "importance": 0.82
+            },
+            {
+              "id": "sports.performance.match_prediction",
+              "canonical_term": "match outcome prediction",
+              "synonyms": [
+                "game prediction",
+                "match result prediction",
+                "win probability",
+                "match forecasting"
+              ],
+              "aliases": [
+                "game prediction"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "sports betting",
+                "team analysis",
+                "performance modeling"
+              ],
+              "potential_ml_tasks": [
+                "classification",
+                "probability_estimation"
+              ],
+              "dataset_requirements": [
+                "historical match data",
+                "team statistics",
+                "player stats"
+              ],
+              "feature_requirements": [
+                "team strength",
+                "form",
+                "head to head",
+                "venue"
+              ],
+              "target_requirements": [
+                "win draw loss labels"
+              ],
+              "importance": 0.85
+            }
+          ]
+        }
+      }
+    },
+    "real_estate": {
+      "label": "Real Estate",
+      "subdomains": {
+        "valuation": {
+          "label": "Property Valuation & Analytics",
+          "concepts": [
+            {
+              "id": "realestate.valuation.price_prediction",
+              "canonical_term": "property price prediction",
+              "synonyms": [
+                "house price prediction",
+                "property valuation",
+                "real estate pricing",
+                "home value estimation"
+              ],
+              "aliases": [
+                "property valuation"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "regression",
+                "hedonic pricing",
+                "location analysis"
+              ],
+              "potential_ml_tasks": [
+                "regression",
+                "classification"
+              ],
+              "dataset_requirements": [
+                "property listings",
+                "transaction history",
+                "property features"
+              ],
+              "feature_requirements": [
+                "location",
+                "size",
+                "rooms",
+                "age",
+                "amenities"
+              ],
+              "target_requirements": [
+                "sale price",
+                "estimated value"
+              ],
+              "importance": 0.88
+            },
+            {
+              "id": "realestate.valuation.rental_forecasting",
+              "canonical_term": "rental price forecasting",
+              "synonyms": [
+                "rent prediction",
+                "rental market analysis",
+                "rental value estimation"
+              ],
+              "aliases": [
+                "rent prediction"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "time series forecasting",
+                "market analysis",
+                "investment analysis"
+              ],
+              "potential_ml_tasks": [
+                "regression",
+                "time_series_forecasting"
+              ],
+              "dataset_requirements": [
+                "rental listings",
+                "rental history",
+                "market data"
+              ],
+              "feature_requirements": [
+                "location",
+                "property features",
+                "market trends"
+              ],
+              "target_requirements": [
+                "rental prices"
+              ],
+              "importance": 0.82
+            }
+          ]
+        }
+      }
+    },
+    "human_resources": {
+      "label": "Human Resources",
+      "subdomains": {
+        "talent": {
+          "label": "Talent Analytics",
+          "concepts": [
+            {
+              "id": "hr.talent.hiring_prediction",
+              "canonical_term": "hiring success prediction",
+              "synonyms": [
+                "recruitment prediction",
+                "candidate success prediction",
+                "hiring outcome prediction"
+              ],
+              "aliases": [
+                "recruitment prediction"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "resume screening",
+                "candidate ranking",
+                "talent acquisition"
+              ],
+              "potential_ml_tasks": [
+                "classification",
+                "ranking"
+              ],
+              "dataset_requirements": [
+                "hiring data",
+                "candidate profiles",
+                "interview outcomes"
+              ],
+              "feature_requirements": [
+                "experience",
+                "skills",
+                "education",
+                "interview scores"
+              ],
+              "target_requirements": [
+                "hire no hire labels"
+              ],
+              "importance": 0.82
+            },
+            {
+              "id": "hr.talent.employee_attrition",
+              "canonical_term": "employee attrition prediction",
+              "synonyms": [
+                "employee turnover prediction",
+                "employee retention prediction",
+                "resignation prediction"
+              ],
+              "aliases": [
+                "employee turnover prediction"
+              ],
+              "abbreviations": [
+                "EAP"
+              ],
+              "related_concepts": [
+                "churn prediction",
+                "workforce planning",
+                "employee satisfaction"
+              ],
+              "potential_ml_tasks": [
+                "binary_classification",
+                "survival_analysis"
+              ],
+              "dataset_requirements": [
+                "employee records",
+                "hr data",
+                "survey data"
+              ],
+              "feature_requirements": [
+                "tenure",
+                "satisfaction",
+                "performance",
+                "compensation"
+              ],
+              "target_requirements": [
+                "attrition labels"
+              ],
+              "importance": 0.85
+            }
+          ]
+        }
+      }
+    },
+    "telecommunications": {
+      "label": "Telecommunications",
+      "subdomains": {
+        "network_optimization": {
+          "label": "Network Optimization",
+          "concepts": [
+            {
+              "id": "telecom.network.network_optimization",
+              "canonical_term": "network optimization",
+              "synonyms": [
+                "telecom network optimization",
+                "network resource allocation",
+                "bandwidth optimization"
+              ],
+              "aliases": [
+                "telecom network optimization"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "resource management",
+                "quality of service",
+                "load balancing"
+              ],
+              "potential_ml_tasks": [
+                "optimization",
+                "regression",
+                "classification"
+              ],
+              "dataset_requirements": [
+                "network performance data",
+                "usage logs",
+                "configuration data"
+              ],
+              "feature_requirements": [
+                "traffic load",
+                "latency",
+                "throughput",
+                "error rates"
+              ],
+              "target_requirements": [
+                "optimal configurations"
+              ],
+              "importance": 0.82
+            },
+            {
+              "id": "telecom.network.customer_churn",
+              "canonical_term": "telecom customer churn",
+              "synonyms": [
+                "subscriber churn",
+                "telecom attrition",
+                "customer retention"
+              ],
+              "aliases": [
+                "subscriber churn prediction"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "churn prediction",
+                "customer analytics",
+                "retention strategies"
+              ],
+              "potential_ml_tasks": [
+                "binary_classification",
+                "survival_analysis"
+              ],
+              "dataset_requirements": [
+                "customer usage data",
+                "billing data",
+                "service logs"
+              ],
+              "feature_requirements": [
+                "usage patterns",
+                "complaints",
+                "contract type",
+                "pricing"
+              ],
+              "target_requirements": [
+                "churn labels"
+              ],
+              "importance": 0.85
+            }
+          ]
+        }
+      }
+    },
+    "robotics": {
+      "label": "Robotics",
+      "subdomains": {
+        "manipulation": {
+          "label": "Robot Manipulation",
+          "concepts": [
+            {
+              "id": "robotics.manipulation.grasp_planning",
+              "canonical_term": "grasp planning",
+              "synonyms": [
+                "robot grasping",
+                "object manipulation",
+                "gripper planning"
+              ],
+              "aliases": [
+                "robot grasping"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "computer vision",
+                "reinforcement learning",
+                "path planning"
+              ],
+              "potential_ml_tasks": [
+                "regression",
+                "classification",
+                "reinforcement_learning"
+              ],
+              "dataset_requirements": [
+                "grasp datasets",
+                "object models",
+                "sensor data"
+              ],
+              "feature_requirements": [
+                "object shape",
+                "object pose",
+                "gripper state"
+              ],
+              "target_requirements": [
+                "grasp poses",
+                "success labels"
+              ],
+              "importance": 0.82
+            },
+            {
+              "id": "robotics.navigation.path_planning",
+              "canonical_term": "robot path planning",
+              "synonyms": [
+                "motion planning",
+                "navigation planning",
+                "path optimization"
+              ],
+              "aliases": [
+                "motion planning"
+              ],
+              "abbreviations": [
+                "RPP"
+              ],
+              "related_concepts": [
+                "reinforcement learning",
+                "slam",
+                "navigation"
+              ],
+              "potential_ml_tasks": [
+                "optimization",
+                "reinforcement_learning",
+                "regression"
+              ],
+              "dataset_requirements": [
+                "environment maps",
+                "trajectory data",
+                "sensor data"
+              ],
+              "feature_requirements": [
+                "environment representation",
+                "robot state",
+                "obstacle positions"
+              ],
+              "target_requirements": [
+                "waypoints",
+                "trajectories"
+              ],
+              "importance": 0.82
+            }
+          ]
+        }
+      }
+    },
+    "operations_research": {
+      "label": "Operations Research",
+      "subdomains": {
+        "optimization": {
+          "label": "Optimization Problems",
+          "concepts": [
+            {
+              "id": "or.optimization.scheduling",
+              "canonical_term": "scheduling optimization",
+              "synonyms": [
+                "task scheduling",
+                "job scheduling",
+                "resource scheduling",
+                "workforce scheduling"
+              ],
+              "aliases": [
+                "task scheduling"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "combinatorial optimization",
+                "constraint satisfaction",
+                "vehicle routing"
+              ],
+              "potential_ml_tasks": [
+                "optimization",
+                "classification"
+              ],
+              "dataset_requirements": [
+                "task data",
+                "resource data",
+                "constraints"
+              ],
+              "feature_requirements": [
+                "task durations",
+                "dependencies",
+                "resource availability"
+              ],
+              "target_requirements": [
+                "optimal schedules"
+              ],
+              "importance": 0.82
+            },
+            {
+              "id": "or.optimization.resource_allocation",
+              "canonical_term": "resource allocation",
+              "synonyms": [
+                "capacity planning",
+                "resource optimization",
+                "budget allocation"
+              ],
+              "aliases": [
+                "capacity planning"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "linear programming",
+                "integer programming",
+                "optimization"
+              ],
+              "potential_ml_tasks": [
+                "optimization",
+                "regression"
+              ],
+              "dataset_requirements": [
+                "resource constraints",
+                "demand data",
+                "cost data"
+              ],
+              "feature_requirements": [
+                "resource capacities",
+                "demand forecasts",
+                "costs"
+              ],
+              "target_requirements": [
+                "allocation decisions"
+              ],
+              "importance": 0.8
+            }
+          ]
+        }
+      }
+    },
+    "geospatial": {
+      "label": "Geospatial Analytics",
+      "subdomains": {
+        "remote_sensing": {
+          "label": "Remote Sensing",
+          "concepts": [
+            {
+              "id": "geo.remote_sensing.land_classification",
+              "canonical_term": "land use classification",
+              "synonyms": [
+                "land cover classification",
+                "satellite image classification",
+                "remote sensing classification"
+              ],
+              "aliases": [
+                "land cover classification"
+              ],
+              "abbreviations": [
+                "LULC"
+              ],
+              "related_concepts": [
+                "satellite imaging",
+                "image classification",
+                "urban planning"
+              ],
+              "potential_ml_tasks": [
+                "classification",
+                "semantic_segmentation"
+              ],
+              "dataset_requirements": [
+                "satellite images",
+                "annotated remote sensing data"
+              ],
+              "feature_requirements": [
+                "spectral bands",
+                "texture features",
+                "spatial features"
+              ],
+              "target_requirements": [
+                "land use labels"
+              ],
+              "importance": 0.85
+            },
+            {
+              "id": "geo.remote_sensing.change_detection",
+              "canonical_term": "change detection",
+              "synonyms": [
+                "temporal change detection",
+                "landscape change detection",
+                "environmental change detection"
+              ],
+              "aliases": [
+                "temporal change detection"
+              ],
+              "abbreviations": [
+                "CD"
+              ],
+              "related_concepts": [
+                "time series analysis",
+                "deforestation monitoring",
+                "urban growth"
+              ],
+              "potential_ml_tasks": [
+                "binary_classification",
+                "semantic_segmentation",
+                "change_classification"
+              ],
+              "dataset_requirements": [
+                "multi temporal satellite images",
+                "change annotated data"
+              ],
+              "feature_requirements": [
+                "spectral differences",
+                "temporal features"
+              ],
+              "target_requirements": [
+                "change labels"
+              ],
+              "importance": 0.82
+            }
+          ]
+        },
+        "gis_analysis": {
+          "label": "GIS & Spatial Analysis",
+          "concepts": [
+            {
+              "id": "geo.gis.spatial_prediction",
+              "canonical_term": "spatial prediction",
+              "synonyms": [
+                "geographic prediction",
+                "spatial interpolation",
+                "kriging",
+                "spatial regression"
+              ],
+              "aliases": [
+                "geographic prediction"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "spatial statistics",
+                "geostatistics",
+                "kriging"
+              ],
+              "potential_ml_tasks": [
+                "regression",
+                "classification",
+                "interpolation"
+              ],
+              "dataset_requirements": [
+                "spatial data",
+                "location based measurements"
+              ],
+              "feature_requirements": [
+                "coordinates",
+                "elevation",
+                "proximity features"
+              ],
+              "target_requirements": [
+                "spatial values"
+              ],
+              "importance": 0.8
+            }
+          ]
+        }
+      }
+    },
+    "public_safety": {
+      "label": "Public Safety",
+      "subdomains": {
+        "crime_analysis": {
+          "label": "Crime Analysis",
+          "concepts": [
+            {
+              "id": "safety.crime.crime_prediction",
+              "canonical_term": "crime prediction",
+              "synonyms": [
+                "crime forecasting",
+                "crime hotspot prediction",
+                "crime pattern analysis"
+              ],
+              "aliases": [
+                "crime forecasting"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "spatial analysis",
+                "time series forecasting",
+                "social analysis"
+              ],
+              "potential_ml_tasks": [
+                "regression",
+                "classification",
+                "time_series_forecasting",
+                "clustering"
+              ],
+              "dataset_requirements": [
+                "crime records",
+                "historical crime data",
+                "demographic data"
+              ],
+              "feature_requirements": [
+                "location",
+                "time",
+                "demographics",
+                "weather",
+                "events"
+              ],
+              "target_requirements": [
+                "crime counts",
+                "crime types"
+              ],
+              "importance": 0.85
+            },
+            {
+              "id": "safety.crime.recidivism_prediction",
+              "canonical_term": "recidivism prediction",
+              "synonyms": [
+                "reoffending prediction",
+                "repeat offender prediction",
+                "relapse prediction"
+              ],
+              "aliases": [
+                "reoffending prediction"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "classification",
+                "risk assessment",
+                "criminal justice"
+              ],
+              "potential_ml_tasks": [
+                "binary_classification",
+                "risk_scoring"
+              ],
+              "dataset_requirements": [
+                "offender records",
+                "criminal history",
+                "rehabilitation data"
+              ],
+              "feature_requirements": [
+                "age",
+                "offense history",
+                "rehabilitation participation"
+              ],
+              "target_requirements": [
+                "recidivism labels"
+              ],
+              "importance": 0.82
+            }
+          ]
+        }
+      }
+    },
+    "entertainment": {
+      "label": "Entertainment & Media",
+      "subdomains": {
+        "content": {
+          "label": "Content Analytics",
+          "concepts": [
+            {
+              "id": "entertainment.content.box_office",
+              "canonical_term": "box office prediction",
+              "synonyms": [
+                "movie revenue prediction",
+                "film success prediction",
+                "box office forecasting"
+              ],
+              "aliases": [
+                "movie revenue prediction"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "regression",
+                "content analysis",
+                "audience analysis"
+              ],
+              "potential_ml_tasks": [
+                "regression",
+                "classification"
+              ],
+              "dataset_requirements": [
+                "movie metadata",
+                "box office data",
+                "reviews"
+              ],
+              "feature_requirements": [
+                "genre",
+                "cast",
+                "budget",
+                "marketing spend",
+                "reviews"
+              ],
+              "target_requirements": [
+                "revenue values"
+              ],
+              "importance": 0.8
+            },
+            {
+              "id": "entertainment.content.recommendation",
+              "canonical_term": "content recommendation",
+              "synonyms": [
+                "movie recommendation",
+                "show recommendation",
+                "media recommendation",
+                "content personalization"
+              ],
+              "aliases": [
+                "media recommendation"
+              ],
+              "abbreviations": [],
+              "related_concepts": [
+                "recommendation systems",
+                "collaborative filtering",
+                "content based filtering"
+              ],
+              "potential_ml_tasks": [
+                "recommendation",
+                "ranking",
+                "classification"
+              ],
+              "dataset_requirements": [
+                "user ratings",
+                "content metadata",
+                "viewing history"
+              ],
+              "feature_requirements": [
+                "user preferences",
+                "content features",
+                "interaction history"
+              ],
+              "target_requirements": [
+                "ratings",
+                "watch labels"
+              ],
+              "importance": 0.85
+            }
+          ]
+        }
+      }
+    }
+  }
+}

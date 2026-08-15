@@ -1,0 +1,205 @@
+{
+  "info": {
+    "name": "DataPilot - Project Requirement Analyzer",
+    "description": "API collection for DataPilot's Project Requirement Analyzer module.\n\nBase URL: Use the {{base_url}} variable (default: http://localhost:8000)\n\nThis collection does NOT contain any API keys or secrets.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/health",
+        "description": "Returns service health status. Does NOT call Gemini."
+      },
+      "response": []
+    },
+    {
+      "name": "Readiness Check",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/ready",
+        "description": "Returns readiness status including Gemini configuration state."
+      },
+      "response": []
+    },
+    {
+      "name": "Analyze - Cybersecurity IoT",
+      "request": {
+        "method": "POST",
+        "url": "{{base_url}}/api/v1/projects/analyze",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"description\": \"I want to develop a machine learning system that detects malicious network activity in IoT devices by analyzing network traffic and identifying abnormal behavior.\"\n}"
+        },
+        "description": "Cybersecurity IoT project - expects network security domain, intrusion detection tasks."
+      },
+      "response": []
+    },
+    {
+      "name": "Analyze - Short Project",
+      "request": {
+        "method": "POST",
+        "url": "{{base_url}}/api/v1/projects/analyze",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"description\": \"Build a sentiment analysis tool.\"\n}"
+        },
+        "description": "Short project description - tests minimal input handling."
+      },
+      "response": []
+    },
+    {
+      "name": "Analyze - 150 Word Boundary",
+      "request": {
+        "method": "POST",
+        "url": "{{base_url}}/api/v1/projects/analyze",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"description\": \"I want to build a comprehensive machine learning system that can analyze medical imaging data to detect early signs of diabetic retinopathy in patients. The system should process retinal fundus photographs and classify them into different stages of the disease, from no retinopathy to proliferative diabetic retinopathy. I need a model that can achieve high accuracy while being interpretable for clinical use. The dataset should include labeled images from diverse patient populations with varying image quality and lighting conditions.\"\n}"
+        },
+        "description": "Tests the 150-word boundary. Should be accepted."
+      },
+      "response": []
+    },
+    {
+      "name": "Analyze - Over 150 Words",
+      "request": {
+        "method": "POST",
+        "url": "{{base_url}}/api/v1/projects/analyze",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"description\": \"I want to build a comprehensive machine learning system that can analyze medical imaging data to detect early signs of diabetic retinopathy in patients across multiple hospitals and clinical settings worldwide. The system should process retinal fundus photographs captured using different camera models and under varying clinical conditions, and classify them into different stages of the disease, ranging from no retinopathy through mild non-proliferative diabetic retinopathy, moderate non-proliferative diabetic retinopathy, severe non-proliferative diabetic retinopathy, and finally proliferative diabetic retinopathy. I need a model that can achieve high accuracy while being interpretable for clinical use, providing explanations for its predictions so that ophthalmologists can understand and trust the system. The dataset should include labeled images from diverse patient populations with varying image quality and lighting conditions to ensure robustness and generalizability across different clinical environments.\"\n}"
+        },
+        "description": "Tests the 150-word limit. Should be rejected with 422."
+      },
+      "response": []
+    },
+    {
+      "name": "Analyze - Ambiguous Healthcare",
+      "request": {
+        "method": "POST",
+        "url": "{{base_url}}/api/v1/projects/analyze",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"description\": \"I want to build an AI project for healthcare.\"\n}"
+        },
+        "description": "Ambiguous healthcare project. Should NOT hallucinate specific diseases or targets."
+      },
+      "response": []
+    },
+    {
+      "name": "Analyze - Education",
+      "request": {
+        "method": "POST",
+        "url": "{{base_url}}/api/v1/projects/analyze",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"description\": \"I want to predict student performance in online courses using engagement data and learning outcomes.\"\n}"
+        },
+        "description": "Education domain project."
+      },
+      "response": []
+    },
+    {
+      "name": "Analyze - Customer Behavior",
+      "request": {
+        "method": "POST",
+        "url": "{{base_url}}/api/v1/projects/analyze",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"description\": \"I want to predict customer behavior for an e-commerce platform.\"\n}"
+        },
+        "description": "Ambiguous customer behavior project - should detect multiple possible interpretations."
+      },
+      "response": []
+    },
+    {
+      "name": "Analyze - Empty Description",
+      "request": {
+        "method": "POST",
+        "url": "{{base_url}}/api/v1/projects/analyze",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"description\": \"   \"\n}"
+        },
+        "description": "Tests empty/whitespace-only input. Should be rejected with 422."
+      },
+      "response": []
+    },
+    {
+      "name": "Analyze - Missing Description",
+      "request": {
+        "method": "POST",
+        "url": "{{base_url}}/api/v1/projects/analyze",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{}"
+        },
+        "description": "Tests missing description field. Should be rejected with 422."
+      },
+      "response": []
+    }
+  ]
+}
