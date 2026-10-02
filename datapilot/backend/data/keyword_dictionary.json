@@ -3205,9 +3205,11 @@
               "synonyms": [
                 "academic performance",
                 "student achievement",
+                "academic achievement",
                 "academic outcome",
                 "student outcomes",
-                "learning outcomes"
+                "learning outcomes",
+                "final grade"
               ],
               "aliases": [
                 "student academic performance"

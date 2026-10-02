@@ -6,10 +6,12 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
+from app.api.v1.datasets import router as datasets_router
 from app.api.v1.project_analysis import router as project_analysis_router
 from app.core.config import get_settings
 from app.core.logging_config import get_logger, setup_logging
 from app.schemas.project import ErrorCode, ErrorDetail, ErrorResponse, HealthResponse, ReadyResponse
+from app.services.datasets import build_default_sources
 from app.services.keyword_service import KeywordService
 
 logger = get_logger(__name__)
@@ -46,9 +48,10 @@ def create_app() -> FastAPI:
         title=settings.app_title,
         version=settings.app_version,
         description=(
-            "DataPilot Backend - Project Requirement Analyzer. "
-            "Analyzes natural-language ML/AI project descriptions and "
-            "extracts structured requirements for dataset discovery."
+            "DataPilot Backend - project requirement analysis and dataset "
+            "discovery. Converts natural-language ML/AI project descriptions "
+            "into structured requirements, then discovers, verifies and ranks "
+            "candidate datasets across external sources."
         ),
         docs_url="/docs",
         redoc_url="/redoc",
@@ -64,6 +67,7 @@ def create_app() -> FastAPI:
     )
 
     app.include_router(project_analysis_router, prefix=settings.api_v1_prefix)
+    app.include_router(datasets_router, prefix=settings.api_v1_prefix)
 
     @app.get("/health", response_model=HealthResponse, tags=["Health"])
     async def health_check() -> HealthResponse:
@@ -76,6 +80,10 @@ def create_app() -> FastAPI:
             gemini_configured=bool(settings.gemini_api_key),
             dictionary_loaded=_keyword_service is not None,
             model=settings.gemini_model,
+            kaggle_configured=bool(settings.kaggle_enabled),
+            kaggle_credentials_present=bool(settings.kaggle_api_token),
+            kaggle_base_url=settings.kaggle_api_base_url,
+            dataset_sources=[s.name for s in build_default_sources(settings)],
         )
 
     @app.exception_handler(Exception)

@@ -26,6 +26,12 @@ def count_words(text: str) -> int:
     return len(_WORD_RE.findall(text))
 
 
+#: Maximum project-description length accepted by the analyzer. ``/recommend``
+#: reuses the analyzer, so it applies the same limit up front instead of
+#: letting the description fail later inside the service layer.
+MAX_PROJECT_DESCRIPTION_WORDS = 150
+
+
 # ---------------------------------------------------------------------------
 # Enums
 # ---------------------------------------------------------------------------
@@ -55,6 +61,17 @@ class ErrorCode(str, Enum):
     LLM_TIMEOUT = "LLM_TIMEOUT"
     LLM_UNAVAILABLE = "LLM_UNAVAILABLE"
     LLM_INVALID_RESPONSE = "LLM_INVALID_RESPONSE"
+    # Phase 2: dataset discovery
+    DATASET_QUERY_REQUIRED = "DATASET_QUERY_REQUIRED"
+    DATASET_QUERY_EMPTY = "DATASET_QUERY_EMPTY"
+    DATASET_QUERY_TOO_LONG = "DATASET_QUERY_TOO_LONG"
+    DATASET_AUTHENTICATION_ERROR = "DATASET_AUTHENTICATION_ERROR"
+    DATASET_RATE_LIMITED = "DATASET_RATE_LIMITED"
+    DATASET_SOURCE_TIMEOUT = "DATASET_SOURCE_TIMEOUT"
+    DATASET_SOURCE_UNAVAILABLE = "DATASET_SOURCE_UNAVAILABLE"
+    DATASET_INVALID_RESPONSE = "DATASET_INVALID_RESPONSE"
+    DATASET_SOURCE_UNSUPPORTED_OPERATION = "DATASET_SOURCE_UNSUPPORTED_OPERATION"
+    DATASET_DISCOVERY_FAILED = "DATASET_DISCOVERY_FAILED"
     INTERNAL_ERROR = "INTERNAL_ERROR"
 
 
@@ -271,6 +288,10 @@ class ReadyResponse(BaseModel):
     gemini_configured: bool
     dictionary_loaded: bool
     model: str
+    kaggle_configured: bool = False
+    kaggle_credentials_present: bool = False
+    kaggle_base_url: str = ""
+    dataset_sources: list[str] = Field(default_factory=list)
 
 
 # ---------------------------------------------------------------------------

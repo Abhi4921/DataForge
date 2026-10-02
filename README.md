@@ -1,6 +1,6 @@
-# DataPilot
+# DataForge
 
-**DataPilot** is a GenAI-powered platform intended to help users move from project ideas to dataset discovery, evaluation, ranking, and recommendation.
+**DataForge** is a GenAI-powered platform intended to help users move from project ideas to dataset discovery, evaluation, ranking, and recommendation.
 
 > **Current Status:** Only the **Project Requirement Analyzer** module is implemented (v0.1.0). Dataset discovery, dataset ranking, dataset recommendation, dataset upload, frontend, database, RAG, and vector search are **NOT yet implemented**.
 
@@ -49,8 +49,8 @@ Structured Response
 ### 1. Clone and enter the backend directory
 
 ```bash
-git clone https://github.com/Sreeshan7/DataPilot.git
-cd DataPilot/datapilot/backend
+git clone https://github.com/Abhi4921/DataForge.git
+cd DataForge/datapilot/backend
 ```
 
 ### 2. Create virtual environment

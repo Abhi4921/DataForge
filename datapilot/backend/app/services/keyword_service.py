@@ -239,6 +239,46 @@ class KeywordService:
 
         return sorted(matched.values(), key=lambda e: e.canonical_term)
 
+    def resolve_canonical_phrase(
+        self, text: str, *, min_tokens: int = 2
+    ) -> Optional[str]:
+        """Return the most specific canonical concept contained in ``text``.
+
+        Only phrases of at least ``min_tokens`` words are considered, so a bare
+        generic word ("student", "academic") is never mistaken for a target.
+        When ``text`` is a verbose sentence with no qualifying dictionary phrase
+        the method returns ``None``, letting callers drop it rather than inject
+        its word salad into a query. This is what turns a model-written target
+        such as "Student performance metrics and support requirement status"
+        into the concise, already-known concept "student performance".
+        """
+        normalized = _normalize(text or "")
+        if not normalized:
+            return None
+
+        best_phrase = ""
+        best_len = 0
+        for phrase_obj in self._all_phrases:
+            phrase = phrase_obj.normalized
+            word_count = len(phrase.split())
+            if word_count < min_tokens or word_count <= best_len:
+                continue
+            if phrase in normalized:
+                best_phrase = phrase
+                best_len = word_count
+
+        if not best_phrase:
+            return None
+        entries = (
+            self._canonical_index.get(best_phrase, [])
+            + self._synonym_index.get(best_phrase, [])
+            + self._alias_index.get(best_phrase, [])
+            + self._related_index.get(best_phrase, [])
+        )
+        if not entries:
+            return None
+        return entries[0]["canonical_term"]
+
     def get_concept(self, concept_id: str) -> Optional[dict]:
         domains = self._raw.get("domains", {})
         for domain_data in domains.values():
@@ -252,6 +292,14 @@ class KeywordService:
         return sorted(
             set(e["canonical_term"] for entries in self._canonical_index.values() for e in entries)
         )
+
+    def get_domain_keys(self) -> list[str]:
+        """Return the dictionary's domain keys, e.g. 'education', 'healthcare'.
+
+        Used by dataset discovery to map external topic tags onto DataPilot's
+        own domain taxonomy without duplicating it. Additive and read-only.
+        """
+        return sorted(self._raw.get("domains", {}).keys())
 
     # ------------------------------------------------------------------
     # Internal

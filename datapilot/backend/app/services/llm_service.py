@@ -1,16 +1,58 @@
 from __future__ import annotations
 
+import asyncio
+import functools
 import time
-from typing import Optional
+from typing import Any, Callable, Optional
 
 from google import genai
 from google.genai import types
 
 from app.core.config import Settings, get_settings
 from app.core.logging_config import get_logger
-from app.schemas.project import LLMProjectAnalysis
+from app.prompts.dataset_discovery import (
+    GENAI_DATASET_DISCOVERY_SYSTEM_PROMPT,
+    build_dataset_discovery_prompt,
+)
+from app.schemas.dataset import LLMDatasetDiscovery
+from app.schemas.project import LLMProjectAnalysis, ProjectAnalysisData
 
 logger = get_logger(__name__)
+
+# Gemini often answers with a transient 503 UNAVAILABLE ("high demand"). The
+# SDK already retries those internally; this is a final bounded retry so a
+# live recommendation survives the spike instead of failing the whole request.
+_TRANSIENT_RETRIES = 2
+_TRANSIENT_BASE_DELAY_S = 1.0
+
+
+def retry_transient_unavailable(func: Callable) -> Callable:
+    """Retry an async Gemini call when it fails with ``LLM_UNAVAILABLE``.
+
+    Auth errors, rate limits and timeouts are real conditions and are not
+    retried. Only the "unavailable / high demand" class gets a bounded retry
+    with exponential backoff.
+    """
+
+    @functools.wraps(func)
+    async def wrapper(*args: Any, **kwargs: Any) -> Any:
+        attempt = 0
+        while True:
+            try:
+                return await func(*args, **kwargs)
+            except LLMServiceError as exc:
+                if exc.code != "LLM_UNAVAILABLE" or attempt >= _TRANSIENT_RETRIES:
+                    raise
+                delay = _TRANSIENT_BASE_DELAY_S * (2**attempt)
+                logger.info(
+                    "Gemini transiently unavailable; retrying %s in %.1fs",
+                    func.__name__,
+                    delay,
+                )
+                await asyncio.sleep(delay)
+                attempt += 1
+
+    return wrapper
 
 _SYSTEM_PROMPT = """You are DataPilot's project requirement extraction engine.
 
@@ -57,6 +99,7 @@ class LLMService:
     def is_configured(self) -> bool:
         return self._client is not None and bool(self._settings.gemini_api_key)
 
+    @retry_transient_unavailable
     async def analyze_project(
         self,
         description: str,
@@ -138,6 +181,101 @@ class LLMService:
             raise LLMServiceError(
                 code="LLM_UNAVAILABLE",
                 message="An unexpected error occurred while calling Gemini.",
+            ) from exc
+
+    @retry_transient_unavailable
+    async def discover_datasets(
+        self,
+        requirements: ProjectAnalysisData,
+        max_candidates: int = 8,
+        known_datasets_hint: Optional[list[str]] = None,
+    ) -> LLMDatasetDiscovery:
+        """Ask Gemini to suggest public datasets that could support a project.
+
+        This is candidate *discovery*, not verification. The model has no
+        browsing access, so every returned candidate is treated downstream as
+        unverified; nothing here may claim external confirmation.
+
+        Args:
+            requirements: Structured requirements from the Project Analyzer.
+            max_candidates: Upper bound on suggestions requested from Gemini.
+            known_datasets_hint: Datasets already found by real sources, so the
+                model can suggest complementary alternatives.
+
+        Returns:
+            Parsed LLMDatasetDiscovery.
+
+        Raises:
+            LLMServiceError: on auth, rate limit, timeout, or parse errors.
+        """
+        if not self._client:
+            raise LLMServiceError(
+                code="LLM_UNAVAILABLE",
+                message="Gemini client is not configured. Check GEMINI_API_KEY.",
+            )
+
+        user_prompt = build_dataset_discovery_prompt(
+            requirements=requirements,
+            max_candidates=max_candidates,
+            known_datasets_hint=known_datasets_hint,
+        )
+
+        try:
+            start = time.monotonic()
+            response = self._client.models.generate_content(
+                model=self._settings.gemini_model,
+                contents=user_prompt,
+                config=types.GenerateContentConfig(
+                    system_instruction=GENAI_DATASET_DISCOVERY_SYSTEM_PROMPT,
+                    response_mime_type="application/json",
+                    response_schema=LLMDatasetDiscovery,
+                    temperature=0.3,
+                    max_output_tokens=4096,
+                ),
+            )
+            elapsed_ms = (time.monotonic() - start) * 1000
+            logger.info(
+                "Gemini dataset discovery response received in %.1fms (model=%s)",
+                elapsed_ms,
+                self._settings.gemini_model,
+            )
+
+            if response.parsed is None:
+                raise LLMServiceError(
+                    code="LLM_INVALID_RESPONSE",
+                    message="Gemini returned an empty or unparsable dataset discovery response.",
+                )
+
+            return response.parsed
+
+        except genai.errors.ClientError as exc:
+            error_str = str(exc).lower()
+            if "api key" in error_str or "auth" in error_str or "permission" in error_str:
+                raise LLMServiceError(
+                    code="LLM_AUTHENTICATION_ERROR",
+                    message="Gemini authentication failed. Check GEMINI_API_KEY.",
+                ) from exc
+            if "rate" in error_str or "quota" in error_str or "429" in error_str:
+                raise LLMServiceError(
+                    code="LLM_RATE_LIMITED",
+                    message="Gemini rate limit exceeded. Please try again later.",
+                ) from exc
+            raise LLMServiceError(
+                code="LLM_UNAVAILABLE",
+                message=f"Gemini API error: {type(exc).__name__}",
+            ) from exc
+        except TimeoutError as exc:
+            raise LLMServiceError(
+                code="LLM_TIMEOUT",
+                message="Gemini request timed out.",
+            ) from exc
+        except LLMServiceError:
+            raise
+        except Exception as exc:
+            logger.error("Unexpected Gemini dataset discovery error: %s", exc)
+            raise LLMServiceError(
+                code="LLM_UNAVAILABLE",
+                message="An unexpected error occurred during dataset discovery.",
             ) from exc
 
     def _build_user_prompt(self, description: str, dictionary_context: str) -> str:
