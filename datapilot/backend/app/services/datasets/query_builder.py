@@ -183,3 +183,62 @@ def build_dataset_search_query(
 
     logger.debug("Built dataset search query: %r", query)
     return query
+
+
+def build_dataset_search_queries(
+    requirements: ProjectAnalysisData,
+    max_terms: int = 6,
+    max_queries: int = 3,
+) -> list[str]:
+    """Build a small deterministic set of complementary registry queries.
+
+    The first query preserves the established high-signal ordering. Additional
+    queries emphasize domain context and project concepts so a registry's
+    treatment of a long multi-term query cannot hide useful results.
+    """
+    if max_queries <= 0:
+        return []
+
+    primary = build_dataset_search_query(requirements, max_terms=max_terms)
+    queries: list[str] = []
+
+    def add_query(values: list[Optional[str]]) -> None:
+        tokens: list[str] = []
+        seen: set[str] = set()
+        for value in values:
+            for token in _tokens(value):
+                if token in _STOP_TERMS or len(token) <= 2 or token in seen:
+                    continue
+                seen.add(token)
+                tokens.append(token)
+                if len(tokens) >= max_terms:
+                    break
+            if len(tokens) >= max_terms:
+                break
+        query = " ".join(tokens)
+        if query and query not in queries and len(queries) < max_queries:
+            queries.append(query)
+
+    if primary:
+        queries.append(primary)
+
+    understanding = requirements.project_understanding
+    dataset_requirements = requirements.dataset_requirements
+    domain_terms = [
+        understanding.domain.value if understanding.domain else None,
+        understanding.subdomain.value if understanding.subdomain else None,
+    ]
+    feature_terms = [feature.name for feature in dataset_requirements.feature_requirements]
+    target_terms = [
+        understanding.target.value if understanding.target else None,
+        *(target.name for target in dataset_requirements.target_requirements),
+    ]
+    concept_terms = list(requirements.keywords.canonical)
+    if not concept_terms:
+        concept_terms = [
+            match.canonical_term for match in requirements.keywords.dictionary_matches
+        ]
+
+    add_query(domain_terms + concept_terms + target_terms)
+    add_query(target_terms + feature_terms + domain_terms)
+    return queries[:max_queries]

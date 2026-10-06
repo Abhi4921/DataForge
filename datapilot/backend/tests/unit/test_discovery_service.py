@@ -150,6 +150,20 @@ class TestDiscover:
         assert genai.calls[0].project_requirements is not None
 
     @pytest.mark.asyncio
+    async def test_provides_kaggle_a_rankable_candidate_pool_and_query_variants(self):
+        kaggle = _kaggle()
+        service = DatasetDiscoveryService(
+            settings=make_settings(dataset_discovery_candidate_pool_size=30),
+            sources=[kaggle],
+        )
+
+        await service.discover(make_requirements(), limit=10)
+
+        assert kaggle.calls[0].limit == 10
+        assert kaggle.calls[0].candidate_pool_limit == 30
+        assert len(kaggle.calls[0].query_variants) > 0
+
+    @pytest.mark.asyncio
     async def test_tells_genai_what_verified_sources_already_found(self):
         genai = _genai([_ai()])
         service = _service(

@@ -310,6 +310,22 @@ class SourceSearchRequest(BaseModel):
 
     query: str
     limit: int
+    candidate_pool_limit: Optional[int] = Field(
+        None,
+        ge=1,
+        le=50,
+        description=(
+            "Optional larger pool for verified sources when candidates will be "
+            "ranked and trimmed by the discovery service."
+        ),
+    )
+    query_variants: list[str] = Field(
+        default_factory=list,
+        description=(
+            "Bounded alternate registry queries for improving recall. "
+            "Suggestion sources continue to receive the primary query only."
+        ),
+    )
     project_requirements: Optional[ProjectAnalysisData] = None
     known_dataset_names: list[str] = Field(
         default_factory=list,

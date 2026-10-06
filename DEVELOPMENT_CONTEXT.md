@@ -26,8 +26,9 @@ Not implemented: dataset upload/analysis, embeddings/RAG, vector databases, Hugg
 - Verified Kaggle results carry `source_type=verified_external`, `verification_status=verified`; Gemini suggestions carry `source_type=ai_suggested`, `verification_status=unverified`. AI `rationale` is used only in ranking reasons — never as evidence, and it is excluded from `evidence_text()` so Gemini cannot inflate its own score.
 - `possible_source` / `is_well_known` are provenance hints only; they never upgrade a candidate to verified.
 - Discovery sources run verified-first (Kaggle) before the GenAI suggestion pass; verified dataset names are passed to Gemini as `known_dataset_names`.
-- Query builder is keywords-first (dictionary canonical terms before domain/subdomain/features/target, max 6 terms). Verified live: this ordering retrieves 20 Kaggle hits for finance/education/sports keywords.
-- Tests: **374 passing** (see §10).
+- Recommendation discovery builds up to three deterministic Kaggle queries and runs each page's query variants concurrently to reduce latency. Kaggle can return a bounded candidate pool (default 30, capped at 50) for ranking before the API response is trimmed to the requested limit; the GenAI suggestion count remains independently capped.
+- Query builder prioritizes the project target and required features, then dictionary concepts and domain/task context. Query terms are capped at six. Verified live: this ordering retrieves Kaggle hits for finance/education/sports keywords.
+- Tests: **411 passing** (see §10).
 
 ---
 
@@ -1167,7 +1168,7 @@ Running `expand_dictionary.py` multiple times may add duplicate concepts. It cur
 - **Phase 2: `GET /datasets/search` and `POST /datasets/recommend` with public error-code mapping**
 - **Phase 2: transient-LLM retry decorator (`LLM_UNAVAILABLE` only)**
 - **Phase 2: secret redaction (`redact_secrets`) applied to discovery outcomes and API errors**
-- **374 unit tests (all passing)**
+- **411 unit tests (all passing)**
 
 ### PARTIALLY IMPLEMENTED
 
