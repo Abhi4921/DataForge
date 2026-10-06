@@ -111,7 +111,8 @@ class DatasetSource(abc.ABC):
         Implementations must:
 
         * return normalized :class:`DatasetCandidate` objects,
-        * never exceed ``request.limit``,
+        * never exceed ``request.candidate_pool_limit`` when it is supplied,
+          otherwise never exceed ``request.limit``,
         * never download dataset contents,
         * raise :class:`DatasetSourceError` on failure rather than returning
           partial results silently.

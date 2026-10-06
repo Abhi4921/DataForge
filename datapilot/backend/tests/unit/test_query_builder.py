@@ -2,7 +2,10 @@
 
 from __future__ import annotations
 
-from app.services.datasets.query_builder import build_dataset_search_query
+from app.services.datasets.query_builder import (
+    build_dataset_search_queries,
+    build_dataset_search_query,
+)
 from tests.conftest import make_requirements
 
 
@@ -42,6 +45,23 @@ class TestQueryIsDerivedFromStructure:
         assert build_dataset_search_query(requirements) == build_dataset_search_query(
             requirements
         )
+
+    def test_generates_bounded_complementary_queries(self):
+        requirements = make_requirements(
+            domain="Education",
+            subdomain="Educational Analytics",
+            keywords=["student performance", "attendance", "exam results"],
+            features=["attendance", "study hours"],
+            target="academic performance",
+        )
+        queries = build_dataset_search_queries(requirements)
+
+        assert 1 <= len(queries) <= 3
+        assert queries[0] == build_dataset_search_query(requirements)
+        assert len(queries) == len(set(queries))
+        assert all(len(query.split()) <= 6 for query in queries)
+        assert any("education" in query for query in queries)
+        assert build_dataset_search_queries(requirements) == queries
 
     def test_respects_max_terms(self):
         requirements = make_requirements(

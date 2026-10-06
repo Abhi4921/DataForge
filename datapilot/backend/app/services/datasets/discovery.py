@@ -40,7 +40,10 @@ from app.schemas.dataset import (
 from app.schemas.project import ProjectAnalysisData, ProjectAnalysisRequest
 from app.services.datasets.base import DatasetSource, DatasetSourceError, redact_secrets
 from app.services.datasets.deduplicator import DatasetDeduplicator
-from app.services.datasets.query_builder import build_dataset_search_query
+from app.services.datasets.query_builder import (
+    build_dataset_search_query,
+    build_dataset_search_queries,
+)
 from app.services.datasets.ranking import DatasetRankingEngine
 from app.services.project_analyzer import ProjectAnalyzer
 
@@ -187,6 +190,19 @@ class DatasetDiscoveryService:
             limit=limit,
             project_requirements=requirements,
         )
+        if requirements is not None:
+            pool_limit = min(
+                50,
+                max(
+                    limit,
+                    int(self._settings.dataset_discovery_candidate_pool_size),
+                ),
+            )
+            base_request.candidate_pool_limit = pool_limit
+            base_request.query_variants = build_dataset_search_queries(
+                requirements,
+                max_terms=self._settings.dataset_discovery_max_query_terms,
+            )[1:]
 
         verified_sources, suggestion_sources = self._partition_sources()
         outcomes: list[SourceOutcome] = []

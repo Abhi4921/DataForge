@@ -37,14 +37,15 @@ class Settings(BaseSettings):
     kaggle_enabled: bool = True
     kaggle_default_limit: int = 10
     kaggle_max_limit: int = 50
-    # Kaggle ignores `pageSize` on datasets/list and always returns 20 rows,
-    # so the limit is satisfied by walking a bounded number of pages.
+    # Kaggle ignores `pageSize` on datasets/list and always returns 20 rows.
+    # This caps total page requests across all query variants in one search.
     kaggle_max_pages: int = 3
 
     # --- Phase 2: GenAI dataset candidate discovery ------------------------
     dataset_discovery_genai_enabled: bool = True
     dataset_discovery_genai_max_candidates: int = 8
     dataset_discovery_max_query_terms: int = 6
+    dataset_discovery_candidate_pool_size: int = 30
 
     # --- Phase 2: deterministic ranking weights ----------------------------
     # Content weights sum to 85, trust weight is 15. Total = 100.

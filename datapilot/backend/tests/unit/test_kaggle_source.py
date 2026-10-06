@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import asyncio
+
 import httpx
 import pytest
 
@@ -105,6 +107,77 @@ class TestKaggleSuccessfulSearch:
         assert seen[0].url.params["search"] == "student academic performance"
         assert seen[0].url.params["page"] == "1"
         assert seen[0].url.path.endswith("/datasets/list")
+
+    async def test_uses_bounded_query_variants_and_candidate_pool(self):
+        seen: list[httpx.Request] = []
+
+        def handler(request: httpx.Request) -> httpx.Response:
+            seen.append(request)
+            query = request.url.params["search"]
+            suffix = "attendance" if query == "attendance" else "performance"
+            return httpx.Response(
+                200,
+                json=[
+                    make_kaggle_record(
+                        ref=f"owner/{suffix}",
+                        title=f"Student {suffix.title()}",
+                    )
+                ],
+            )
+
+        source = KaggleDatasetSource(
+            settings=make_settings(kaggle_max_pages=3),
+            client=httpx.AsyncClient(transport=httpx.MockTransport(handler)),
+        )
+        candidates = await source.search(
+            SourceSearchRequest(
+                query="student performance",
+                query_variants=["attendance", "study hours", "extra query"],
+                candidate_pool_limit=2,
+                limit=1,
+            )
+        )
+
+        assert [request.url.params["search"] for request in seen] == [
+            "student performance",
+            "attendance",
+            "study hours",
+        ]
+        assert len(candidates) == 2
+        assert {candidate.source_id for candidate in candidates} == {
+            "owner/performance",
+            "owner/attendance",
+        }
+
+    async def test_searches_query_variants_concurrently(self, monkeypatch):
+        source = KaggleDatasetSource(
+            settings=make_settings(kaggle_max_pages=3),
+            client=httpx.AsyncClient(
+                transport=httpx.MockTransport(lambda _: httpx.Response(200, json=[]))
+            ),
+        )
+        started: list[str] = []
+        all_started = asyncio.Event()
+
+        async def fetch_page(client, query: str, page: int):
+            started.append(query)
+            if len(started) == 3:
+                all_started.set()
+            await asyncio.wait_for(all_started.wait(), timeout=1)
+            slug = query.replace(" ", "-")
+            return [make_kaggle_record(ref=f"owner/{slug}")]
+
+        monkeypatch.setattr(source, "_fetch_page", fetch_page)
+        candidates = await source.search(
+            SourceSearchRequest(
+                query="student performance",
+                query_variants=["attendance", "study hours"],
+                limit=3,
+            )
+        )
+
+        assert started == ["student performance", "attendance", "study hours"]
+        assert len(candidates) == 3
 
     async def test_does_not_download_dataset_files(self):
         """Discovery must never hit a download or files endpoint."""
@@ -346,4 +419,3 @@ class TestKaggleConfiguration:
         await source.search(_request())
 
         assert "authorization" not in seen[0].headers
-

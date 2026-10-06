@@ -2,8 +2,8 @@
 
 Only ``GET /v1/datasets/list`` metadata is used: no dataset is ever downloaded,
 no file is listed, no per-dataset detail call is made. One request returns at
-most 20 rows regardless of ``pageSize``, so satisfying a larger limit costs one
-additional request per page, capped by ``kaggle_max_pages``.
+most 20 rows regardless of ``pageSize``. The configured ``kaggle_max_pages``
+is the total request budget across all search queries and pages.
 
 Authentication uses the modern ``KAGGLE_API_TOKEN`` sent as a bearer token, so
 no ``~/.kaggle/kaggle.json`` credential file is required. The token is only
@@ -13,6 +13,7 @@ placed in a query string.
 
 from __future__ import annotations
 
+import asyncio
 from typing import Any, ClassVar, Optional
 
 import httpx
@@ -67,26 +68,63 @@ class KaggleDatasetSource(DatasetSource):
                 message="A non-empty query is required for Kaggle discovery.",
             )
 
-        limit = max(1, min(int(request.limit), self.max_limit))
+        limit = max(
+            1,
+            min(
+                int(request.candidate_pool_limit or request.limit),
+                self.max_limit,
+            ),
+        )
         candidates: list[DatasetCandidate] = []
         seen: set[str] = set()
+        exhausted_queries: set[str] = set()
+        page_requests = 0
+        queries: list[str] = []
+        for value in [query, *request.query_variants]:
+            normalized = " ".join(value.split()).strip()
+            if normalized and normalized.casefold() not in {
+                item.casefold() for item in queries
+            }:
+                queries.append(normalized)
+            if len(queries) == 3:
+                break
 
         async with self._acquire_client() as client:
             for page in range(1, self._settings.kaggle_max_pages + 1):
-                payload = await self._fetch_page(client, query, page)
-                page_candidates = normalize_kaggle_records(payload)
-                if not page_candidates:
+                available_queries = [
+                    search_query
+                    for search_query in queries
+                    if search_query not in exhausted_queries
+                ][: self._settings.kaggle_max_pages - page_requests]
+                if not available_queries:
                     break
-                for candidate in page_candidates:
-                    if candidate.id in seen:
+
+                payloads = await asyncio.gather(
+                    *(
+                        self._fetch_page(client, search_query, page)
+                        for search_query in available_queries
+                    )
+                )
+                page_requests += len(available_queries)
+                for search_query, payload in zip(available_queries, payloads):
+                    page_candidates = normalize_kaggle_records(payload)
+                    if not page_candidates:
+                        exhausted_queries.add(search_query)
                         continue
-                    seen.add(candidate.id)
-                    candidates.append(candidate)
+                    for candidate in page_candidates:
+                        if candidate.id in seen:
+                            continue
+                        seen.add(candidate.id)
+                        candidates.append(candidate)
+                    if len(candidates) >= limit:
+                        break
                 if len(candidates) >= limit:
                     break
 
         logger.info(
-            "Kaggle discovery for query %r returned %d candidates", query, len(candidates)
+            "Kaggle discovery for %d query variant(s) returned %d candidates",
+            len(queries),
+            len(candidates),
         )
         return candidates[:limit]
 
